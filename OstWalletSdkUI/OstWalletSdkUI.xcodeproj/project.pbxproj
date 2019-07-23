@@ -1,0 +1,810 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4B27C24E22E5F4C20063FC91 /* OstAuthorizeDeviceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B27C24D22E5F4C20063FC91 /* OstAuthorizeDeviceListViewController.swift */; };
+		4B27C25322E5F7170063FC91 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B27C25022E5F7160063FC91 /* BaseTableViewCell.swift */; };
+		4B27C25422E5F7170063FC91 /* DeviceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B27C25122E5F7160063FC91 /* DeviceTableViewCell.swift */; };
+		4B27C25522E5F7170063FC91 /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B27C25222E5F7160063FC91 /* UsersTableViewCell.swift */; };
+		4BDE72EC22E1C84900F906D1 /* OstWalletSdkUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BDE72E222E1C84900F906D1 /* OstWalletSdkUI.framework */; };
+		4BDE72F122E1C84900F906D1 /* OstWalletSdkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE72F022E1C84900F906D1 /* OstWalletSdkUITests.swift */; };
+		4BDE72F322E1C84900F906D1 /* OstWalletSdkUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BDE72E522E1C84900F906D1 /* OstWalletSdkUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4BDE730022E1CA4D00F906D1 /* OstWalletSdkUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE72FF22E1CA4D00F906D1 /* OstWalletSdkUI.swift */; };
+		4BDE730322E1CA9700F906D1 /* OstWorkflowUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE730222E1CA9700F906D1 /* OstWorkflowUIDelegate.swift */; };
+		4BDE731222E1DD2C00F906D1 /* UIColor+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE731122E1DD2C00F906D1 /* UIColor+Helper.swift */; };
+		4BDE731422E1E12B00F906D1 /* UIController+Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE731322E1E12B00F906D1 /* UIController+Presenter.swift */; };
+		4BDE731722E577B800F906D1 /* OstPassphrasePrefixDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE731622E577B700F906D1 /* OstPassphrasePrefixDelegate.swift */; };
+		4BDE731A22E578AF00F906D1 /* OstAbortDeviceWorkflowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE731922E578AF00F906D1 /* OstAbortDeviceWorkflowController.swift */; };
+		4BDE732322E5791900F906D1 /* OstConfirmNewPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE731E22E5791900F906D1 /* OstConfirmNewPinViewController.swift */; };
+		4BDE732422E5791900F906D1 /* OstSetNewPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE731F22E5791900F906D1 /* OstSetNewPinViewController.swift */; };
+		4BDE732522E5791900F906D1 /* OstGetPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE732022E5791900F906D1 /* OstGetPinViewController.swift */; };
+		4BDE732622E5791900F906D1 /* OstBaseScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE732122E5791900F906D1 /* OstBaseScrollViewController.swift */; };
+		4BDE732722E5791900F906D1 /* OstBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE732222E5791900F906D1 /* OstBaseViewController.swift */; };
+		4BDE733822E579FC00F906D1 /* OstPinInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE732A22E579FC00F906D1 /* OstPinInput.swift */; };
+		4BDE733922E579FC00F906D1 /* OstButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE732C22E579FC00F906D1 /* OstButton.swift */; };
+		4BDE733E22E579FC00F906D1 /* OstBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE733222E579FC00F906D1 /* OstBaseView.swift */; };
+		4BDE733F22E579FC00F906D1 /* OstLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE733422E579FC00F906D1 /* OstLabel.swift */; };
+		4BDE734022E579FC00F906D1 /* InsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE733522E579FC00F906D1 /* InsetLabel.swift */; };
+		4BDE734222E579FC00F906D1 /* OstProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE733722E579FC00F906D1 /* OstProgressIndicator.swift */; };
+		4BDE734622E57AA800F906D1 /* UIImage+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE734322E57AA800F906D1 /* UIImage+Helper.swift */; };
+		4BDE734722E57AA800F906D1 /* UIVIew+NSLayoutConstraintHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE734422E57AA800F906D1 /* UIVIew+NSLayoutConstraintHelper.swift */; };
+		4BDE734822E57AA800F906D1 /* UIFont+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE734522E57AA800F906D1 /* UIFont+Helpers.swift */; };
+		4BDE734C22E57DEF00F906D1 /* OstSdkInteract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE734922E57DEE00F906D1 /* OstSdkInteract.swift */; };
+		4BDE734D22E57DEF00F906D1 /* OstWFCPinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE734A22E57DEF00F906D1 /* OstWFCPinManager.swift */; };
+		4BDE734E22E57DEF00F906D1 /* OstWorkflowCallbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE734B22E57DEF00F906D1 /* OstWorkflowCallbacks.swift */; };
+		4BDE736122E57FE300F906D1 /* BaseTheamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE735022E57FE300F906D1 /* BaseTheamer.swift */; };
+		4BDE736222E57FE300F906D1 /* OstSecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE735222E57FE300F906D1 /* OstSecondaryButton.swift */; };
+		4BDE736322E57FE300F906D1 /* OstLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE735322E57FE300F906D1 /* OstLinkButton.swift */; };
+		4BDE736422E57FE300F906D1 /* OstButtonTheamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE735422E57FE300F906D1 /* OstButtonTheamer.swift */; };
+		4BDE736522E57FE300F906D1 /* OstPrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE735522E57FE300F906D1 /* OstPrimaryButton.swift */; };
+		4BDE736622E57FE300F906D1 /* OstH1Theamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE735722E57FE300F906D1 /* OstH1Theamer.swift */; };
+		4BDE736722E57FE300F906D1 /* OstLabelTheamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE735822E57FE300F906D1 /* OstLabelTheamer.swift */; };
+		4BDE736822E57FE300F906D1 /* OstLeadLabelTheamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE735922E57FE300F906D1 /* OstLeadLabelTheamer.swift */; };
+		4BDE736922E57FE300F906D1 /* OstNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE735B22E57FE300F906D1 /* OstNavigation.swift */; };
+		4BDE736A22E57FE300F906D1 /* OstBlueNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE735C22E57FE300F906D1 /* OstBlueNavigation.swift */; };
+		4BDE736B22E57FE300F906D1 /* OstUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE735D22E57FE300F906D1 /* OstUIKit.swift */; };
+		4BDE736C22E57FE300F906D1 /* OstFontProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE735F22E57FE300F906D1 /* OstFontProvider.swift */; };
+		4BDE736D22E57FE300F906D1 /* OstTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE736022E57FE300F906D1 /* OstTheme.swift */; };
+		4BDE736F22E582BC00F906D1 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE736E22E582BC00F906D1 /* WKWebViewController.swift */; };
+		4BDE745822E5BB0300F906D1 /* OstInitiateDeviceRecoveryWorkflowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE745722E5BB0300F906D1 /* OstInitiateDeviceRecoveryWorkflowController.swift */; };
+		4BDE745A22E5C96E00F906D1 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE745922E5C96E00F906D1 /* Notification+Name.swift */; };
+		4BDE745C22E5CA2200F906D1 /* OstActivateUserWorkflowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE745B22E5CA2200F906D1 /* OstActivateUserWorkflowController.swift */; };
+		4BE4E2F022E6E6B60020E677 /* OstWalletSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE4E2C022E6E2780020E677 /* OstWalletSdk.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4BDE72ED22E1C84900F906D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4BDE72D922E1C84900F906D1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4BDE72E122E1C84900F906D1;
+			remoteInfo = OstWalletSdkUI;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4B27C24D22E5F4C20063FC91 /* OstAuthorizeDeviceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OstAuthorizeDeviceListViewController.swift; sourceTree = "<group>"; };
+		4B27C25022E5F7160063FC91 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		4B27C25122E5F7160063FC91 /* DeviceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceTableViewCell.swift; sourceTree = "<group>"; };
+		4B27C25222E5F7160063FC91 /* UsersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
+		4BDE72E222E1C84900F906D1 /* OstWalletSdkUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OstWalletSdkUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BDE72E522E1C84900F906D1 /* OstWalletSdkUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OstWalletSdkUI.h; sourceTree = "<group>"; };
+		4BDE72E622E1C84900F906D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BDE72EB22E1C84900F906D1 /* OstWalletSdkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OstWalletSdkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BDE72F022E1C84900F906D1 /* OstWalletSdkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OstWalletSdkUITests.swift; sourceTree = "<group>"; };
+		4BDE72F222E1C84900F906D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BDE72FD22E1C88600F906D1 /* OstWalletSdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OstWalletSdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BDE72FF22E1CA4D00F906D1 /* OstWalletSdkUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OstWalletSdkUI.swift; sourceTree = "<group>"; };
+		4BDE730222E1CA9700F906D1 /* OstWorkflowUIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OstWorkflowUIDelegate.swift; sourceTree = "<group>"; };
+		4BDE731122E1DD2C00F906D1 /* UIColor+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Helper.swift"; sourceTree = "<group>"; };
+		4BDE731322E1E12B00F906D1 /* UIController+Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIController+Presenter.swift"; sourceTree = "<group>"; };
+		4BDE731622E577B700F906D1 /* OstPassphrasePrefixDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OstPassphrasePrefixDelegate.swift; sourceTree = "<group>"; };
+		4BDE731922E578AF00F906D1 /* OstAbortDeviceWorkflowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OstAbortDeviceWorkflowController.swift; sourceTree = "<group>"; };
+		4BDE731E22E5791900F906D1 /* OstConfirmNewPinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstConfirmNewPinViewController.swift; sourceTree = "<group>"; };
+		4BDE731F22E5791900F906D1 /* OstSetNewPinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstSetNewPinViewController.swift; sourceTree = "<group>"; };
+		4BDE732022E5791900F906D1 /* OstGetPinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstGetPinViewController.swift; sourceTree = "<group>"; };
+		4BDE732122E5791900F906D1 /* OstBaseScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstBaseScrollViewController.swift; sourceTree = "<group>"; };
+		4BDE732222E5791900F906D1 /* OstBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstBaseViewController.swift; sourceTree = "<group>"; };
+		4BDE732A22E579FC00F906D1 /* OstPinInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstPinInput.swift; sourceTree = "<group>"; };
+		4BDE732C22E579FC00F906D1 /* OstButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstButton.swift; sourceTree = "<group>"; };
+		4BDE733222E579FC00F906D1 /* OstBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstBaseView.swift; sourceTree = "<group>"; };
+		4BDE733422E579FC00F906D1 /* OstLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstLabel.swift; sourceTree = "<group>"; };
+		4BDE733522E579FC00F906D1 /* InsetLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsetLabel.swift; sourceTree = "<group>"; };
+		4BDE733722E579FC00F906D1 /* OstProgressIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstProgressIndicator.swift; sourceTree = "<group>"; };
+		4BDE734322E57AA800F906D1 /* UIImage+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Helper.swift"; sourceTree = "<group>"; };
+		4BDE734422E57AA800F906D1 /* UIVIew+NSLayoutConstraintHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIVIew+NSLayoutConstraintHelper.swift"; sourceTree = "<group>"; };
+		4BDE734522E57AA800F906D1 /* UIFont+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Helpers.swift"; sourceTree = "<group>"; };
+		4BDE734922E57DEE00F906D1 /* OstSdkInteract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstSdkInteract.swift; sourceTree = "<group>"; };
+		4BDE734A22E57DEF00F906D1 /* OstWFCPinManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstWFCPinManager.swift; sourceTree = "<group>"; };
+		4BDE734B22E57DEF00F906D1 /* OstWorkflowCallbacks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstWorkflowCallbacks.swift; sourceTree = "<group>"; };
+		4BDE735022E57FE300F906D1 /* BaseTheamer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTheamer.swift; sourceTree = "<group>"; };
+		4BDE735222E57FE300F906D1 /* OstSecondaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstSecondaryButton.swift; sourceTree = "<group>"; };
+		4BDE735322E57FE300F906D1 /* OstLinkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstLinkButton.swift; sourceTree = "<group>"; };
+		4BDE735422E57FE300F906D1 /* OstButtonTheamer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstButtonTheamer.swift; sourceTree = "<group>"; };
+		4BDE735522E57FE300F906D1 /* OstPrimaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstPrimaryButton.swift; sourceTree = "<group>"; };
+		4BDE735722E57FE300F906D1 /* OstH1Theamer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstH1Theamer.swift; sourceTree = "<group>"; };
+		4BDE735822E57FE300F906D1 /* OstLabelTheamer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstLabelTheamer.swift; sourceTree = "<group>"; };
+		4BDE735922E57FE300F906D1 /* OstLeadLabelTheamer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstLeadLabelTheamer.swift; sourceTree = "<group>"; };
+		4BDE735B22E57FE300F906D1 /* OstNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstNavigation.swift; sourceTree = "<group>"; };
+		4BDE735C22E57FE300F906D1 /* OstBlueNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstBlueNavigation.swift; sourceTree = "<group>"; };
+		4BDE735D22E57FE300F906D1 /* OstUIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstUIKit.swift; sourceTree = "<group>"; };
+		4BDE735F22E57FE300F906D1 /* OstFontProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstFontProvider.swift; sourceTree = "<group>"; };
+		4BDE736022E57FE300F906D1 /* OstTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstTheme.swift; sourceTree = "<group>"; };
+		4BDE736E22E582BC00F906D1 /* WKWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
+		4BDE745722E5BB0300F906D1 /* OstInitiateDeviceRecoveryWorkflowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstInitiateDeviceRecoveryWorkflowController.swift; sourceTree = "<group>"; };
+		4BDE745922E5C96E00F906D1 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
+		4BDE745B22E5CA2200F906D1 /* OstActivateUserWorkflowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstActivateUserWorkflowController.swift; sourceTree = "<group>"; };
+		4BE4E2C022E6E2780020E677 /* OstWalletSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OstWalletSdk.framework; path = ../Carthage/Build/iOS/OstWalletSdk.framework; sourceTree = "<group>"; };
+		4BE4E2E022E6E57C0020E677 /* BigInt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BigInt.framework; path = ../Carthage/Build/iOS/BigInt.framework; sourceTree = "<group>"; };
+		4BE4E2E122E6E57C0020E677 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		4BE4E2E222E6E57C0020E677 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = ../Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
+		4BE4E2E322E6E57C0020E677 /* FMDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FMDB.framework; path = ../Carthage/Build/iOS/FMDB.framework; sourceTree = "<group>"; };
+		4BE4E2E422E6E57C0020E677 /* CryptoEthereumSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoEthereumSwift.framework; path = ../Carthage/Build/iOS/CryptoEthereumSwift.framework; sourceTree = "<group>"; };
+		4BE4E2E522E6E57C0020E677 /* SipHash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SipHash.framework; path = ../Carthage/Build/iOS/SipHash.framework; sourceTree = "<group>"; };
+		4BE4E2E622E6E57C0020E677 /* TrustKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TrustKit.framework; path = ../Carthage/Build/iOS/TrustKit.framework; sourceTree = "<group>"; };
+		4BE4E2E722E6E57C0020E677 /* EthereumKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EthereumKit.framework; path = ../Carthage/Build/iOS/EthereumKit.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4BDE72DF22E1C84900F906D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BE4E2F022E6E6B60020E677 /* OstWalletSdk.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BDE72E822E1C84900F906D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BDE72EC22E1C84900F906D1 /* OstWalletSdkUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4B27C24F22E5F6DE0063FC91 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4B27C25022E5F7160063FC91 /* BaseTableViewCell.swift */,
+				4B27C25222E5F7160063FC91 /* UsersTableViewCell.swift */,
+				4B27C25122E5F7160063FC91 /* DeviceTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		4BDE72D822E1C84900F906D1 = {
+			isa = PBXGroup;
+			children = (
+				4BDE72E422E1C84900F906D1 /* OstWalletSdkUI */,
+				4BDE72EF22E1C84900F906D1 /* OstWalletSdkUITests */,
+				4BDE72E322E1C84900F906D1 /* Products */,
+				4BDE72FC22E1C88600F906D1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4BDE72E322E1C84900F906D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4BDE72E222E1C84900F906D1 /* OstWalletSdkUI.framework */,
+				4BDE72EB22E1C84900F906D1 /* OstWalletSdkUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4BDE72E422E1C84900F906D1 /* OstWalletSdkUI */ = {
+			isa = PBXGroup;
+			children = (
+				4B27C24F22E5F6DE0063FC91 /* Cells */,
+				4BDE734F22E57FE300F906D1 /* Theamers */,
+				4BDE732822E579FC00F906D1 /* Views */,
+				4BDE731C22E578D400F906D1 /* ViewController */,
+				4BDE731522E1E83200F906D1 /* Interact */,
+				4BDE731022E1DCD200F906D1 /* Utils */,
+				4BDE730122E1CA8000F906D1 /* Delegates */,
+				4BDE72E522E1C84900F906D1 /* OstWalletSdkUI.h */,
+				4BDE72E622E1C84900F906D1 /* Info.plist */,
+				4BDE72FF22E1CA4D00F906D1 /* OstWalletSdkUI.swift */,
+			);
+			path = OstWalletSdkUI;
+			sourceTree = "<group>";
+		};
+		4BDE72EF22E1C84900F906D1 /* OstWalletSdkUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4BDE72F022E1C84900F906D1 /* OstWalletSdkUITests.swift */,
+				4BDE72F222E1C84900F906D1 /* Info.plist */,
+			);
+			path = OstWalletSdkUITests;
+			sourceTree = "<group>";
+		};
+		4BDE72FC22E1C88600F906D1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4BE4E2E122E6E57C0020E677 /* Alamofire.framework */,
+				4BE4E2E022E6E57C0020E677 /* BigInt.framework */,
+				4BE4E2E422E6E57C0020E677 /* CryptoEthereumSwift.framework */,
+				4BE4E2E222E6E57C0020E677 /* CryptoSwift.framework */,
+				4BE4E2E722E6E57C0020E677 /* EthereumKit.framework */,
+				4BE4E2E322E6E57C0020E677 /* FMDB.framework */,
+				4BE4E2E522E6E57C0020E677 /* SipHash.framework */,
+				4BE4E2E622E6E57C0020E677 /* TrustKit.framework */,
+				4BE4E2C022E6E2780020E677 /* OstWalletSdk.framework */,
+				4BDE72FD22E1C88600F906D1 /* OstWalletSdk.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4BDE730122E1CA8000F906D1 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				4BDE730222E1CA9700F906D1 /* OstWorkflowUIDelegate.swift */,
+				4BDE731622E577B700F906D1 /* OstPassphrasePrefixDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		4BDE731022E1DCD200F906D1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4BDE734522E57AA800F906D1 /* UIFont+Helpers.swift */,
+				4BDE734322E57AA800F906D1 /* UIImage+Helper.swift */,
+				4BDE734422E57AA800F906D1 /* UIVIew+NSLayoutConstraintHelper.swift */,
+				4BDE731122E1DD2C00F906D1 /* UIColor+Helper.swift */,
+				4BDE731322E1E12B00F906D1 /* UIController+Presenter.swift */,
+				4BDE745922E5C96E00F906D1 /* Notification+Name.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		4BDE731522E1E83200F906D1 /* Interact */ = {
+			isa = PBXGroup;
+			children = (
+				4BDE734922E57DEE00F906D1 /* OstSdkInteract.swift */,
+				4BDE734A22E57DEF00F906D1 /* OstWFCPinManager.swift */,
+				4BDE734B22E57DEF00F906D1 /* OstWorkflowCallbacks.swift */,
+				4BDE731822E5787200F906D1 /* WorkflowController */,
+			);
+			path = Interact;
+			sourceTree = "<group>";
+		};
+		4BDE731822E5787200F906D1 /* WorkflowController */ = {
+			isa = PBXGroup;
+			children = (
+				4BDE745B22E5CA2200F906D1 /* OstActivateUserWorkflowController.swift */,
+				4BDE745722E5BB0300F906D1 /* OstInitiateDeviceRecoveryWorkflowController.swift */,
+				4BDE731922E578AF00F906D1 /* OstAbortDeviceWorkflowController.swift */,
+			);
+			path = WorkflowController;
+			sourceTree = "<group>";
+		};
+		4BDE731C22E578D400F906D1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4BDE736E22E582BC00F906D1 /* WKWebViewController.swift */,
+				4BDE732122E5791900F906D1 /* OstBaseScrollViewController.swift */,
+				4BDE732222E5791900F906D1 /* OstBaseViewController.swift */,
+				4BDE731D22E5791900F906D1 /* pin */,
+				4B27C24D22E5F4C20063FC91 /* OstAuthorizeDeviceListViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4BDE731D22E5791900F906D1 /* pin */ = {
+			isa = PBXGroup;
+			children = (
+				4BDE731E22E5791900F906D1 /* OstConfirmNewPinViewController.swift */,
+				4BDE731F22E5791900F906D1 /* OstSetNewPinViewController.swift */,
+				4BDE732022E5791900F906D1 /* OstGetPinViewController.swift */,
+			);
+			path = pin;
+			sourceTree = "<group>";
+		};
+		4BDE732822E579FC00F906D1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4BDE732922E579FC00F906D1 /* PinInput */,
+				4BDE732B22E579FC00F906D1 /* Buttons */,
+				4BDE733222E579FC00F906D1 /* OstBaseView.swift */,
+				4BDE733322E579FC00F906D1 /* Labels */,
+				4BDE733722E579FC00F906D1 /* OstProgressIndicator.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4BDE732922E579FC00F906D1 /* PinInput */ = {
+			isa = PBXGroup;
+			children = (
+				4BDE732A22E579FC00F906D1 /* OstPinInput.swift */,
+			);
+			path = PinInput;
+			sourceTree = "<group>";
+		};
+		4BDE732B22E579FC00F906D1 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				4BDE732C22E579FC00F906D1 /* OstButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		4BDE733322E579FC00F906D1 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				4BDE733422E579FC00F906D1 /* OstLabel.swift */,
+				4BDE733522E579FC00F906D1 /* InsetLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		4BDE734F22E57FE300F906D1 /* Theamers */ = {
+			isa = PBXGroup;
+			children = (
+				4BDE735022E57FE300F906D1 /* BaseTheamer.swift */,
+				4BDE735122E57FE300F906D1 /* Buttons */,
+				4BDE735622E57FE300F906D1 /* Labels */,
+				4BDE735A22E57FE300F906D1 /* Navigation */,
+				4BDE735D22E57FE300F906D1 /* OstUIKit.swift */,
+				4BDE735E22E57FE300F906D1 /* Fonts */,
+				4BDE736022E57FE300F906D1 /* OstTheme.swift */,
+			);
+			path = Theamers;
+			sourceTree = "<group>";
+		};
+		4BDE735122E57FE300F906D1 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				4BDE735222E57FE300F906D1 /* OstSecondaryButton.swift */,
+				4BDE735322E57FE300F906D1 /* OstLinkButton.swift */,
+				4BDE735422E57FE300F906D1 /* OstButtonTheamer.swift */,
+				4BDE735522E57FE300F906D1 /* OstPrimaryButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		4BDE735622E57FE300F906D1 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				4BDE735722E57FE300F906D1 /* OstH1Theamer.swift */,
+				4BDE735822E57FE300F906D1 /* OstLabelTheamer.swift */,
+				4BDE735922E57FE300F906D1 /* OstLeadLabelTheamer.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		4BDE735A22E57FE300F906D1 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				4BDE735B22E57FE300F906D1 /* OstNavigation.swift */,
+				4BDE735C22E57FE300F906D1 /* OstBlueNavigation.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		4BDE735E22E57FE300F906D1 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4BDE735F22E57FE300F906D1 /* OstFontProvider.swift */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4BDE72DD22E1C84900F906D1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BDE72F322E1C84900F906D1 /* OstWalletSdkUI.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4BDE72E122E1C84900F906D1 /* OstWalletSdkUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BDE72F622E1C84900F906D1 /* Build configuration list for PBXNativeTarget "OstWalletSdkUI" */;
+			buildPhases = (
+				4BDE72DD22E1C84900F906D1 /* Headers */,
+				4BDE72DE22E1C84900F906D1 /* Sources */,
+				4BDE72DF22E1C84900F906D1 /* Frameworks */,
+				4BDE72E022E1C84900F906D1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OstWalletSdkUI;
+			productName = OstWalletSdkUI;
+			productReference = 4BDE72E222E1C84900F906D1 /* OstWalletSdkUI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4BDE72EA22E1C84900F906D1 /* OstWalletSdkUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BDE72F922E1C84900F906D1 /* Build configuration list for PBXNativeTarget "OstWalletSdkUITests" */;
+			buildPhases = (
+				4BDE72E722E1C84900F906D1 /* Sources */,
+				4BDE72E822E1C84900F906D1 /* Frameworks */,
+				4BDE72E922E1C84900F906D1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4BDE72EE22E1C84900F906D1 /* PBXTargetDependency */,
+			);
+			name = OstWalletSdkUITests;
+			productName = OstWalletSdkUITests;
+			productReference = 4BDE72EB22E1C84900F906D1 /* OstWalletSdkUITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4BDE72D922E1C84900F906D1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "aniket ayachit";
+				TargetAttributes = {
+					4BDE72E122E1C84900F906D1 = {
+						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
+					};
+					4BDE72EA22E1C84900F906D1 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 4BDE72DC22E1C84900F906D1 /* Build configuration list for PBXProject "OstWalletSdkUI" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4BDE72D822E1C84900F906D1;
+			productRefGroup = 4BDE72E322E1C84900F906D1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4BDE72E122E1C84900F906D1 /* OstWalletSdkUI */,
+				4BDE72EA22E1C84900F906D1 /* OstWalletSdkUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4BDE72E022E1C84900F906D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BDE72E922E1C84900F906D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4BDE72DE22E1C84900F906D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BDE734722E57AA800F906D1 /* UIVIew+NSLayoutConstraintHelper.swift in Sources */,
+				4BDE732422E5791900F906D1 /* OstSetNewPinViewController.swift in Sources */,
+				4BDE731422E1E12B00F906D1 /* UIController+Presenter.swift in Sources */,
+				4BDE734C22E57DEF00F906D1 /* OstSdkInteract.swift in Sources */,
+				4B27C25422E5F7170063FC91 /* DeviceTableViewCell.swift in Sources */,
+				4B27C25322E5F7170063FC91 /* BaseTableViewCell.swift in Sources */,
+				4BDE736522E57FE300F906D1 /* OstPrimaryButton.swift in Sources */,
+				4BDE731722E577B800F906D1 /* OstPassphrasePrefixDelegate.swift in Sources */,
+				4BDE736822E57FE300F906D1 /* OstLeadLabelTheamer.swift in Sources */,
+				4BDE733922E579FC00F906D1 /* OstButton.swift in Sources */,
+				4BDE734E22E57DEF00F906D1 /* OstWorkflowCallbacks.swift in Sources */,
+				4BDE745822E5BB0300F906D1 /* OstInitiateDeviceRecoveryWorkflowController.swift in Sources */,
+				4BDE732522E5791900F906D1 /* OstGetPinViewController.swift in Sources */,
+				4BDE732322E5791900F906D1 /* OstConfirmNewPinViewController.swift in Sources */,
+				4BDE736B22E57FE300F906D1 /* OstUIKit.swift in Sources */,
+				4BDE734D22E57DEF00F906D1 /* OstWFCPinManager.swift in Sources */,
+				4BDE732722E5791900F906D1 /* OstBaseViewController.swift in Sources */,
+				4BDE736622E57FE300F906D1 /* OstH1Theamer.swift in Sources */,
+				4BDE736922E57FE300F906D1 /* OstNavigation.swift in Sources */,
+				4BDE736C22E57FE300F906D1 /* OstFontProvider.swift in Sources */,
+				4BDE736122E57FE300F906D1 /* BaseTheamer.swift in Sources */,
+				4BDE733822E579FC00F906D1 /* OstPinInput.swift in Sources */,
+				4BDE736422E57FE300F906D1 /* OstButtonTheamer.swift in Sources */,
+				4BDE730322E1CA9700F906D1 /* OstWorkflowUIDelegate.swift in Sources */,
+				4BDE731222E1DD2C00F906D1 /* UIColor+Helper.swift in Sources */,
+				4BDE745A22E5C96E00F906D1 /* Notification+Name.swift in Sources */,
+				4BDE734022E579FC00F906D1 /* InsetLabel.swift in Sources */,
+				4BDE734822E57AA800F906D1 /* UIFont+Helpers.swift in Sources */,
+				4BDE736A22E57FE300F906D1 /* OstBlueNavigation.swift in Sources */,
+				4BDE736722E57FE300F906D1 /* OstLabelTheamer.swift in Sources */,
+				4BDE730022E1CA4D00F906D1 /* OstWalletSdkUI.swift in Sources */,
+				4B27C24E22E5F4C20063FC91 /* OstAuthorizeDeviceListViewController.swift in Sources */,
+				4B27C25522E5F7170063FC91 /* UsersTableViewCell.swift in Sources */,
+				4BDE736D22E57FE300F906D1 /* OstTheme.swift in Sources */,
+				4BDE734622E57AA800F906D1 /* UIImage+Helper.swift in Sources */,
+				4BDE745C22E5CA2200F906D1 /* OstActivateUserWorkflowController.swift in Sources */,
+				4BDE736F22E582BC00F906D1 /* WKWebViewController.swift in Sources */,
+				4BDE733E22E579FC00F906D1 /* OstBaseView.swift in Sources */,
+				4BDE736322E57FE300F906D1 /* OstLinkButton.swift in Sources */,
+				4BDE732622E5791900F906D1 /* OstBaseScrollViewController.swift in Sources */,
+				4BDE731A22E578AF00F906D1 /* OstAbortDeviceWorkflowController.swift in Sources */,
+				4BDE733F22E579FC00F906D1 /* OstLabel.swift in Sources */,
+				4BDE734222E579FC00F906D1 /* OstProgressIndicator.swift in Sources */,
+				4BDE736222E57FE300F906D1 /* OstSecondaryButton.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BDE72E722E1C84900F906D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BDE72F122E1C84900F906D1 /* OstWalletSdkUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4BDE72EE22E1C84900F906D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4BDE72E122E1C84900F906D1 /* OstWalletSdkUI */;
+			targetProxy = 4BDE72ED22E1C84900F906D1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4BDE72F422E1C84900F906D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4BDE72F522E1C84900F906D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4BDE72F722E1C84900F906D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = N83K86W6P4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					./../Carthage/Build/iOS,
+				);
+				INFOPLIST_FILE = OstWalletSdkUI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ost.OstWalletSdkUI;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4BDE72F822E1C84900F906D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = N83K86W6P4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					./../Carthage/Build/iOS,
+				);
+				INFOPLIST_FILE = OstWalletSdkUI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ost.OstWalletSdkUI;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4BDE72FA22E1C84900F906D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N83K86W6P4;
+				INFOPLIST_FILE = OstWalletSdkUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ost.OstWalletSdkUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4BDE72FB22E1C84900F906D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N83K86W6P4;
+				INFOPLIST_FILE = OstWalletSdkUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ost.OstWalletSdkUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4BDE72DC22E1C84900F906D1 /* Build configuration list for PBXProject "OstWalletSdkUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BDE72F422E1C84900F906D1 /* Debug */,
+				4BDE72F522E1C84900F906D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4BDE72F622E1C84900F906D1 /* Build configuration list for PBXNativeTarget "OstWalletSdkUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BDE72F722E1C84900F906D1 /* Debug */,
+				4BDE72F822E1C84900F906D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4BDE72F922E1C84900F906D1 /* Build configuration list for PBXNativeTarget "OstWalletSdkUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BDE72FA22E1C84900F906D1 /* Debug */,
+				4BDE72FB22E1C84900F906D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4BDE72D922E1C84900F906D1 /* Project object */;
+}
