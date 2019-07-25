@@ -127,7 +127,7 @@ class OstPinViewController: OstBaseScrollViewController {
         
         var termsAttributes: [NSAttributedString.Key : Any]  = attributes
         termsAttributes[.init("action")] = #selector(self.LinkLabelTapped(attributes:))
-        termsAttributes[.init("url")] = ""
+        termsAttributes[.init("url")] = OstContent.getInstance().getTCURL()
         termsAttributes[.foregroundColor] = UIColor.color(0, 118, 255)
         let termsAttributedString = NSAttributedString(string: " T&C Apply", attributes: termsAttributes)
         

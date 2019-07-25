@@ -263,6 +263,9 @@
 		4B4EB878228FE17D001605DE /* OstVerifyTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4EB877228FE17D001605DE /* OstVerifyTransactionViewController.swift */; };
 		4B4EB879228FE17D001605DE /* OstVerifyTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4EB877228FE17D001605DE /* OstVerifyTransactionViewController.swift */; };
 		4B4EB87A228FE17D001605DE /* OstVerifyTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4EB877228FE17D001605DE /* OstVerifyTransactionViewController.swift */; };
+		4B7B88D722E9AC3100251B62 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B88D622E9AC3100251B62 /* AppConfig.swift */; };
+		4B7B88D822E9B05900251B62 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B88D622E9AC3100251B62 /* AppConfig.swift */; };
+		4B7B88D922E9B05900251B62 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B88D622E9AC3100251B62 /* AppConfig.swift */; };
 		4B9E7370227D9BF8009E1094 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9E736E227D9BF8009E1094 /* TransactionTableViewCell.swift */; };
 		4B9E7371227D9BF8009E1094 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9E736E227D9BF8009E1094 /* TransactionTableViewCell.swift */; };
 		4B9E7372227D9BF8009E1094 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9E736E227D9BF8009E1094 /* TransactionTableViewCell.swift */; };
@@ -519,6 +522,7 @@
 		4B4EB86E228E87B8001605DE /* AuthorizeDeviceQRScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeDeviceQRScanner.swift; sourceTree = "<group>"; };
 		4B4EB872228F49D5001605DE /* TransactionQRScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionQRScanner.swift; sourceTree = "<group>"; };
 		4B4EB877228FE17D001605DE /* OstVerifyTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OstVerifyTransactionViewController.swift; sourceTree = "<group>"; };
+		4B7B88D622E9AC3100251B62 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		4B9E736E227D9BF8009E1094 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		4B9E736F227D9BF8009E1094 /* UsersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
 		4B9E7376227D9CDA009E1094 /* PaginationLoaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginationLoaderTableViewCell.swift; sourceTree = "<group>"; };
@@ -959,6 +963,7 @@
 				4BA4CB0C227DF2B300A623ED /* CurrentEconomy.swift */,
 				4BA4CB712280B5FB00A623ED /* CurrentUserModel.swift */,
 				4B09CB5B22D4C58000A8A6A0 /* UserCrashlyticsSetting.swift */,
+				4B7B88D622E9AC3100251B62 /* AppConfig.swift */,
 			);
 			path = new;
 			sourceTree = "<group>";
@@ -1581,6 +1586,7 @@
 				4B464E772271CD8C00F1F4AF /* OstSdkInteract.swift in Sources */,
 				4BF8FE322240FD1400519779 /* SetupWalletView.swift in Sources */,
 				4BF8FE182240FD1400519779 /* Users.swift in Sources */,
+				4B7B88D722E9AC3100251B62 /* AppConfig.swift in Sources */,
 				4BF8FE312240FD1400519779 /* AddSessionView.swift in Sources */,
 				4BA4CB9622846FF100A623ED /* OstRestPinWorkflowController.swift in Sources */,
 				4BF8FE262240FD1400519779 /* WalletViewController.swift in Sources */,
@@ -1797,6 +1803,7 @@
 				00FF2334226F5B2C009C2945 /* OstTheme.swift in Sources */,
 				0041A65A22807D15007A52A8 /* OstSdkInteract+Workflow.swift in Sources */,
 				4B214A8C228D805E006825FE /* EmptyTransactionTableViewCell.swift in Sources */,
+				4B7B88D822E9B05900251B62 /* AppConfig.swift in Sources */,
 				4B464F47227AC73500F1F4AF /* BaseWalletView.swift in Sources */,
 				002EAF3D2271F8B700B48F1D /* UIColor+Helper.swift in Sources */,
 				4B464FB1227D9ABE00F1F4AF /* OstWalletViewController.swift in Sources */,
@@ -1913,6 +1920,7 @@
 				00FF2335226F5B2C009C2945 /* OstTheme.swift in Sources */,
 				0041A65B22807D15007A52A8 /* OstSdkInteract+Workflow.swift in Sources */,
 				4B214A8D228D805E006825FE /* EmptyTransactionTableViewCell.swift in Sources */,
+				4B7B88D922E9B05900251B62 /* AppConfig.swift in Sources */,
 				4B464F48227AC73600F1F4AF /* BaseWalletView.swift in Sources */,
 				002EAF3E2271F8B700B48F1D /* UIColor+Helper.swift in Sources */,
 				4B464FB2227D9ABE00F1F4AF /* OstWalletViewController.swift in Sources */,

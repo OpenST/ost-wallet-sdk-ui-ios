@@ -45,7 +45,14 @@ import Foundation
         return UIImage(named: imageName, in: Bundle(for: type(of: self)), compatibleWith: nil)!
     }
     
-    
+    func getTCURL() -> String {
+        if let urlTC = contentConfig["url_terms_and_condition"] as? [String: Any],
+            let url = urlTC["url"] as? String {
+                return url
+        }
+        
+        return (OstDefaultContent.content["url_terms_and_condition"] as! [String: Any])["url"] as! String
+    }
 }
 
 @objc class OstDefaultContent: NSObject {
@@ -55,15 +62,10 @@ import Foundation
             "url": ""
         ],
         "url_terms_and_condition": [
+            "url": "https://drive.google.com/file/d/1QTZ7_EYpbo5Cr7sLdqkKbuwZu-tmZHzD/view",
             "name": "Your PIN will be used to authorise sessions, transactions, redemptions and recover wallet. <tc>",
             "tc": ["name":"T&C Apply",
                    "url": "https://drive.google.com/file/d/1QTZ7_EYpbo5Cr7sLdqkKbuwZu-tmZHzD/view"]
         ],
-        
-        "string_title": [
-            "name": "title for this one"
-        ]
-        
-        
     ]
 }
