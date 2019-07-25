@@ -13,8 +13,8 @@ class OstBlueNavigation: OstNavigation {
     override init() {
         super.init();
         self.fontProvider = OstFontProvider(fontName: "Lato")
-        self.barTintColor = UIColor.color(97, 178, 214)
-        self.barTextColor = .white
+        self.barTintColor = .white
+        self.barTextColor = UIColor.color(97, 178, 214)
         self.backBarButtonImage = UIImage(named: "Back")!
     }
 }

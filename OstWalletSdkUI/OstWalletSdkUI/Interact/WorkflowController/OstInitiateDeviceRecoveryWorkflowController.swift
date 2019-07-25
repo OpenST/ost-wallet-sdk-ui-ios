@@ -40,7 +40,7 @@ class OstInitiateDeviceRecoveryWorkflowController: OstWorkflowCallbacks {
     @objc override func vcIsMovingFromParent(_ notification: Notification) {
         
         var isFlowCancelled: Bool = false
-        if (nil == self.deviceListController && notification.object is OstGetPinViewController)
+        if (nil == self.deviceListController && notification.object is OstCreatePinViewController)
             || (nil != self.deviceListController && notification.object is OstAuthorizeDeviceListViewController) {
          
             isFlowCancelled = true
@@ -54,7 +54,7 @@ class OstInitiateDeviceRecoveryWorkflowController: OstWorkflowCallbacks {
     }
     
     func setGetPinViewController() {
-        self.getPinViewController = OstGetPinViewController.newInstance(pinInputDelegate: self);
+        self.getPinViewController = OstCreatePinViewController.newInstance(pinInputDelegate: self);
     }
     
     func openAuthorizeDeviceListController() {

@@ -10,8 +10,6 @@ import UIKit
 
 class OstBaseViewController: UIViewController, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
     
-    public var navigationThemer: OstNavigation =  OstTheme.blueNavigation
-    
     var shouldFireIsMovingFromParent = false;
     deinit {
         print("deinit: \(String(describing: self))")
@@ -76,11 +74,10 @@ class OstBaseViewController: UIViewController, UINavigationControllerDelegate, U
         if nil == self.navigationController {
             return;
         }
-        self.navigationItem.title = getNavBarTitle()
         
-        navigationThemer.apply(self.navigationController!,
-                               target: getTargetForNavBarBackbutton(),
-                               action: getSelectorForNavBarBackbutton())
+        OstNavigation().apply(self.navigationController!,
+                              target: getTargetForNavBarBackbutton(),
+                              action: getSelectorForNavBarBackbutton())
     }
     
     func getTargetForNavBarBackbutton() -> AnyObject? {

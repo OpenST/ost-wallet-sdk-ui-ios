@@ -20,7 +20,7 @@ class OstAbortDeviceRecoveryWorkflowController: OstWorkflowCallbacks {
         
         super.init(userId: userId, passphrasePrefixDelegate: passphrasePrefixDelegate);
         
-        self.getPinViewController = OstGetPinViewController.newInstance(pinInputDelegate: self);
+        self.getPinViewController = OstCreatePinViewController.newInstance(pinInputDelegate: self);
         self.observeViewControllerIsMovingFromParent();
         
         self.getPinViewController!.presentVCWithNavigation()
@@ -31,7 +31,7 @@ class OstAbortDeviceRecoveryWorkflowController: OstWorkflowCallbacks {
     }
     
     @objc override func vcIsMovingFromParent(_ notification: Notification) {
-        if ( notification.object is OstGetPinViewController ) {
+        if ( notification.object is OstCreatePinViewController ) {
             self.getPinViewController = nil;
             //The workflow has been cancled by user.
             

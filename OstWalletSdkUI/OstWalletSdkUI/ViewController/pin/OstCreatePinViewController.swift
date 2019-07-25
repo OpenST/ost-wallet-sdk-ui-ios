@@ -11,23 +11,28 @@
 import UIKit
 import OstWalletSdk;
 
-class OstConfirmNewPinViewController: OstPinViewController {
 
-    public override class func newInstance(pinInputDelegate: OstPinInputDelegate) -> OstConfirmNewPinViewController {
-        let instance = OstConfirmNewPinViewController();
+class OstCreatePinViewController: OstPinViewController {
+    
+    public override class func newInstance(pinInputDelegate: OstPinInputDelegate) -> OstCreatePinViewController {
+        let instance = OstCreatePinViewController();
         setEssentials(instance: instance, pinInputDelegate: pinInputDelegate);
         return instance;
     }
     
+    class func setEssentials(instance: OstCreatePinViewController, pinInputDelegate: OstPinInputDelegate) {
+        instance.pinInputDelegate = pinInputDelegate;
+    }
+    
     override func getTitleLabelText() -> String {
-        return "Confirm PIN"
+        return "Enter Pin"
     }
     
     override func getLeadLabelText() -> String {
-        return "If you forget your PIN, you cannot recover your wallet."
+        return "Enter you 6-digit PIN to authorize \n your action."
     }
     
     override func getH3LabelText() -> String {
-        return "(So please be sure to remember it)"
+        return "(PIN helps you recover your wallet if the \n phone is lost or stolen)"
     }
 }

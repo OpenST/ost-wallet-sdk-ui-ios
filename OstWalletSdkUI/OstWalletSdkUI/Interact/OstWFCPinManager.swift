@@ -56,7 +56,7 @@ extension OstWorkflowCallbacks {
     
     public func getPin(_ userId: String, delegate: OstPinAcceptDelegate) {
         self.sdkPinAcceptDelegate = delegate;
-        self.getPinViewController = OstGetPinViewController.newInstance(pinInputDelegate: self);
+        self.getPinViewController = OstCreatePinViewController.newInstance(pinInputDelegate: self);
         showGetPinViewController();
     }
     

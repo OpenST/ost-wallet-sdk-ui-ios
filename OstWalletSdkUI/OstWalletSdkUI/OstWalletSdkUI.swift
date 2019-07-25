@@ -13,6 +13,16 @@ import UIKit
 @objc public class OstWalletSdkUI: NSObject {
     
     @objc
+    public class func setThemeConfig(_ config: [String: Any]) {
+        _ = OstTheme1(themeConfig: config)
+    }
+    
+    @objc
+    public class func setContentConfig(_ config: [String: Any]) {
+        _ = OstContent(contentConfig: config)
+    }
+    
+    @objc
     public class func activateUser(
         userId: String,
         spendingLimit: String,

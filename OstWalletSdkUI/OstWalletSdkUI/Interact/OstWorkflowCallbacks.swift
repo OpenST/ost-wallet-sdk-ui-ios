@@ -46,7 +46,7 @@ import OstWalletSdk
     var userPin:String? = nil;
     var sdkPinAcceptDelegate:OstPinAcceptDelegate? = nil;
     var passphrasePrefixDelegate: OstPassphrasePrefixDelegate?
-    var getPinViewController: OstGetPinViewController? = nil
+    var getPinViewController: OstCreatePinViewController? = nil
 
     /// Mark - Workflow callback vars.
     let workflowId: String

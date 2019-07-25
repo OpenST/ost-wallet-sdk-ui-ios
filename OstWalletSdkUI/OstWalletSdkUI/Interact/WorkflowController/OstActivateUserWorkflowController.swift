@@ -18,7 +18,7 @@ class OstActivateUserWorkflowController: OstWorkflowCallbacks {
     let expireAfterInSec:TimeInterval
     
     /// Mark - View Controllers.
-    var setPinViewController: OstSetNewPinViewController? = nil
+    var setPinViewController: OstCreatePinViewController? = nil
     var confirmPinViewController: OstConfirmNewPinViewController?;
     
     init(userId: String,
@@ -29,7 +29,7 @@ class OstActivateUserWorkflowController: OstWorkflowCallbacks {
         self.spendingLimit = spendingLimit
         self.expireAfterInSec = expireAfterInSec
         super.init(userId: userId, passphrasePrefixDelegate: passphrasePrefixDelegate)
-        self.setPinViewController = OstSetNewPinViewController.newInstance(pinInputDelegate: self)
+        self.setPinViewController = OstCreatePinViewController.newInstance(pinInputDelegate: self)
         self.observeViewControllerIsMovingFromParent();
         
         self.setPinViewController!.presentVCWithNavigation()

@@ -338,8 +338,6 @@
 		4BCC1B4F224B8003008B58A1 /* LogoutAllSessions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCC1B4E224B8003008B58A1 /* LogoutAllSessions.swift */; };
 		4BE4E2C622E6E3F60020E677 /* OstWalletSdkUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE4E2C522E6E3F60020E677 /* OstWalletSdkUI.framework */; };
 		4BE4E2C722E6E3F60020E677 /* OstWalletSdkUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE4E2C522E6E3F60020E677 /* OstWalletSdkUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4BE4E2F222E709ED0020E677 /* OstWalletSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE4E2F122E709EC0020E677 /* OstWalletSdk.framework */; };
-		4BE4E2F322E709ED0020E677 /* OstWalletSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE4E2F122E709EC0020E677 /* OstWalletSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4BF8FDBC2240FA7600519779 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF8FDBB2240FA7600519779 /* AppDelegate.swift */; };
 		4BF8FDBE2240FA7600519779 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF8FDBD2240FA7600519779 /* ViewController.swift */; };
 		4BF8FDC32240FA7700519779 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BF8FDC22240FA7700519779 /* Assets.xcassets */; };
@@ -432,7 +430,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				4BE4E2C722E6E3F60020E677 /* OstWalletSdkUI.framework in Embed Frameworks */,
-				4BE4E2F322E709ED0020E677 /* OstWalletSdk.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -548,7 +545,6 @@
 		4BA4CBA62285FB7E00A623ED /* BaseSettingOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSettingOptionsViewController.swift; sourceTree = "<group>"; };
 		4BCC1B4E224B8003008B58A1 /* LogoutAllSessions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutAllSessions.swift; sourceTree = "<group>"; };
 		4BE4E2C522E6E3F60020E677 /* OstWalletSdkUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OstWalletSdkUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4BE4E2F122E709EC0020E677 /* OstWalletSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OstWalletSdk.framework; path = ../Carthage/Build/iOS/OstWalletSdk.framework; sourceTree = "<group>"; };
 		4BF8FDB82240FA7600519779 /* TestDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BF8FDBB2240FA7600519779 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BF8FDBD2240FA7600519779 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -621,7 +617,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BE4E2F222E709ED0020E677 /* OstWalletSdk.framework in Frameworks */,
 				4B402C9D22AD0B1700ABDC2C /* Pods_TestDemoApp.framework in Frameworks */,
 				4BE4E2C622E6E3F60020E677 /* OstWalletSdkUI.framework in Frameworks */,
 			);
@@ -989,7 +984,6 @@
 		4BF8FDAF2240FA7600519779 = {
 			isa = PBXGroup;
 			children = (
-				4BE4E2F122E709EC0020E677 /* OstWalletSdk.framework */,
 				4BE4E2C522E6E3F60020E677 /* OstWalletSdkUI.framework */,
 				4BF8FDBA2240FA7600519779 /* TestDemoApp */,
 				4BF8FDCF2240FA7700519779 /* TestDemoAppTests */,
