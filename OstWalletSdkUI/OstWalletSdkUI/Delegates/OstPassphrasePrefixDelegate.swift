@@ -13,18 +13,15 @@ import Foundation;
 import OstWalletSdk
 
 
-@objc public protocol OstPassphrasePrefixAcceptDelegate {
+@objc public protocol OstPassphrasePrefixAcceptDelegate: OstBaseDelegate {
     
     @objc
     func setPassphrase(ostUserId:String, passphrase:String);
-    
-    @objc
-    func cancelFlow(error:[String:Any]?);
 }
 
 @objc public protocol OstPassphrasePrefixDelegate {
     @objc
     func getPassphrase(ostUserId:String,
                        workflowContext: OstWorkflowContext,
-                       passphrasePrefixAcceptDelegate: OstPassphrasePrefixAcceptDelegate);
+                       delegate: OstPassphrasePrefixAcceptDelegate);
 }

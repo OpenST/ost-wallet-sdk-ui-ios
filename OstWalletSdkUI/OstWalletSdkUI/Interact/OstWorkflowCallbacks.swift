@@ -178,15 +178,10 @@ import OstWalletSdk
         
     }
     
-    @objc public func cancelFlow(error:[String:Any]?) {
-        let errorMessage:String? = error?["display_message"] as? String;
-        if ( nil != errorMessage ) {
-            progressIndicator?.showFailureAlert(withTitle: errorMessage!, onCompletion: {[weak self] (_) in
-                self?.cancelPinAcceptor();
-            })
-        }else {
-            self.cancelPinAcceptor();
-        }
+    public func cancelFlow() {
+        progressIndicator?.showFailureAlert(withTitle: "Cancelled", onCompletion: {[weak self] (_) in
+            self?.cancelPinAcceptor();
+        })
     }
     
     func cleanUp() {

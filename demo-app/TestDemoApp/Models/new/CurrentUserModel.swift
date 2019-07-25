@@ -17,20 +17,20 @@ class CurrentUserModel: OstBaseModel, OWFlowInterruptedDelegate, OWFlowCompleteD
     //MARK: - OstPassphrasePrefixDelegate
     func getPassphrase(ostUserId: String,
                        workflowContext: OstWorkflowContext,
-                       passphrasePrefixAcceptDelegate: OstPassphrasePrefixAcceptDelegate) {
+                       delegate: OstPassphrasePrefixAcceptDelegate) {
         
         if ( nil == self.ostUserId || self.ostUserId!.compare(ostUserId) != .orderedSame ) {
             var error:[String:Any] = [:];
             error["display_message"] = "Something went wrong. Please re-launch the application and try again.";
             error["extra_info"] = "Sdk requested for passphrase of user-id which is not logged-in.";
-            passphrasePrefixAcceptDelegate.cancelFlow(error: error);
+            delegate.cancelFlow();
             return;
         }
         
-        UserAPI.getCurrentUserSalt(meta: nil, onSuccess: {[weak self, passphrasePrefixAcceptDelegate] (userPinSalt, data) in
-            passphrasePrefixAcceptDelegate.setPassphrase(ostUserId: self!.ostUserId!, passphrase: userPinSalt);
-            }, onFailure: {[passphrasePrefixAcceptDelegate] (error) in
-                passphrasePrefixAcceptDelegate.cancelFlow(error: error);
+        UserAPI.getCurrentUserSalt(meta: nil, onSuccess: {[weak self, delegate] (userPinSalt, data) in
+            delegate.setPassphrase(ostUserId: self!.ostUserId!, passphrase: userPinSalt);
+            }, onFailure: {[weak self, delegate] (error) in
+                delegate.cancelFlow();
         });
     }
   

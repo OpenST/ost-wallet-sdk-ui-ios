@@ -40,7 +40,7 @@ extension OstWorkflowCallbacks {
         self.showLoader(progressText: .unknown);
         self.passphrasePrefixDelegate?.getPassphrase(ostUserId: self.userId,
                                                      workflowContext: getWorkflowContext(),
-                                                     passphrasePrefixAcceptDelegate: self);
+                                                     delegate: self);
     }
     
     @objc func getWorkflowContext() -> OstWorkflowContext {
