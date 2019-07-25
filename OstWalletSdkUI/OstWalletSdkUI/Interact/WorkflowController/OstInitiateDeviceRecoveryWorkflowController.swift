@@ -37,6 +37,10 @@ class OstInitiateDeviceRecoveryWorkflowController: OstWorkflowCallbacks {
         print("OstInitiateDeviceRecoveryWorkflowController :: I am deinit ");
     }
     
+    @objc override func getWorkflowContext() -> OstWorkflowContext {
+        return OstWorkflowContext(workflowType: .initiateDeviceRecovery)
+    }
+    
     @objc override func vcIsMovingFromParent(_ notification: Notification) {
         
         var isFlowCancelled: Bool = false
@@ -95,13 +99,13 @@ class OstInitiateDeviceRecoveryWorkflowController: OstWorkflowCallbacks {
         showLoader(progressText: .initiateDeviceRecovery);
     }
     
-    //MARK: - OstPinAcceptDelegate
-    override func pinProvided(pin: String) {
-        self.userPin = pin;
-        showLoader(progressText: .initiateDeviceRecovery);
-        passphrasePrefixDelegate!.getPassphrase(ostUserId: self.userId,
-                                                passphrasePrefixAcceptDelegate: self);
-    }
+//    //MARK: - OstPinAcceptDelegate
+//    override func pinProvided(pin: String) {
+//        self.userPin = pin;
+//        showLoader(progressText: .initiateDeviceRecovery);
+//        passphrasePrefixDelegate!.getPassphrase(ostUserId: self.userId,
+//                                                passphrasePrefixAcceptDelegate: self);
+//    }
     
     override func cleanUp() {
         super.cleanUp();

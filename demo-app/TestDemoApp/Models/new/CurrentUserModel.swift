@@ -16,7 +16,9 @@ class CurrentUserModel: OstBaseModel, OWFlowInterruptedDelegate, OWFlowCompleteD
     
     //MARK: - OstPassphrasePrefixDelegate
     func getPassphrase(ostUserId: String,
+                       workflowContext: OstWorkflowContext,
                        passphrasePrefixAcceptDelegate: OstPassphrasePrefixAcceptDelegate) {
+        
         if ( nil == self.ostUserId || self.ostUserId!.compare(ostUserId) != .orderedSame ) {
             var error:[String:Any] = [:];
             error["display_message"] = "Something went wrong. Please re-launch the application and try again.";
@@ -31,7 +33,6 @@ class CurrentUserModel: OstBaseModel, OWFlowInterruptedDelegate, OWFlowCompleteD
                 passphrasePrefixAcceptDelegate.cancelFlow(error: error);
         });
     }
-    
   
     static let getInstance = CurrentUserModel()
     

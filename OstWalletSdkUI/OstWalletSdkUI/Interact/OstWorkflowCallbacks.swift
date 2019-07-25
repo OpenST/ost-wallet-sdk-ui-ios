@@ -212,6 +212,7 @@ import OstWalletSdk
         if ( nil != progressIndicator ) {
             if ( nil != progressIndicator!.alert ) {
                 //progressIndicator is showing.
+                progressIndicator?.textCode = progressText
                 return;
             }
         }

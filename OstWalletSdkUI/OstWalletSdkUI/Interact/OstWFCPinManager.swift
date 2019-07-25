@@ -39,7 +39,12 @@ extension OstWorkflowCallbacks {
         userPin = pin;
         self.showLoader(progressText: .unknown);
         self.passphrasePrefixDelegate?.getPassphrase(ostUserId: self.userId,
+                                                     workflowContext: getWorkflowContext(),
                                                      passphrasePrefixAcceptDelegate: self);
+    }
+    
+    @objc func getWorkflowContext() -> OstWorkflowContext {
+        fatalError("getWorkflowContext is not override.")
     }
     
     func cancelPinAcceptor() {

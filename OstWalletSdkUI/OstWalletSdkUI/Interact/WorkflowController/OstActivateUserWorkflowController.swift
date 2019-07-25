@@ -38,6 +38,10 @@ class OstActivateUserWorkflowController: OstWorkflowCallbacks {
         print("OstActivateUserWorkflowController :: I am deinit ");
     }
     
+    @objc override func getWorkflowContext() -> OstWorkflowContext {
+        return OstWorkflowContext(workflowType: .activateUser)
+    }
+    
     @objc override func vcIsMovingFromParent(_ notification: Notification) {
         if ( notification.object is OstConfirmNewPinViewController ) {
             self.confirmPinViewController = nil;
@@ -80,9 +84,7 @@ class OstActivateUserWorkflowController: OstWorkflowCallbacks {
             showConfirmPinViewController();
         } else if ( self.userPin!.compare(pin) == .orderedSame ){
             //Fetch salt and inititate workflow.
-            showLoader(progressText: .activingUser);
-            passphrasePrefixDelegate!.getPassphrase(ostUserId: self.userId,
-                                                    passphrasePrefixAcceptDelegate: self);
+            super.pinProvided(pin: pin)
         } else {
             //Show error.
             self.confirmPinViewController?.showInvalidPin(errorMessage: "Please enter same pin as earlier.");

@@ -10,6 +10,7 @@
  */
 
 import Foundation;
+import OstWalletSdk
 
 
 @objc public protocol OstPassphrasePrefixAcceptDelegate {
@@ -23,5 +24,7 @@ import Foundation;
 
 @objc public protocol OstPassphrasePrefixDelegate {
     @objc
-    func getPassphrase(ostUserId:String, passphrasePrefixAcceptDelegate: OstPassphrasePrefixAcceptDelegate);
+    func getPassphrase(ostUserId:String,
+                       workflowContext: OstWorkflowContext,
+                       passphrasePrefixAcceptDelegate: OstPassphrasePrefixAcceptDelegate);
 }

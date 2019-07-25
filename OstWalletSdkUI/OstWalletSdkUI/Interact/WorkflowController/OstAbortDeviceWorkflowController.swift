@@ -30,6 +30,10 @@ class OstAbortDeviceRecoveryWorkflowController: OstWorkflowCallbacks {
         print("OstAbortDeviceRecoveryWorkflowController :: I am deinit");
     }
     
+    @objc override func getWorkflowContext() -> OstWorkflowContext {
+        return OstWorkflowContext(workflowType: .abortDeviceRecovery)
+    }
+    
     @objc override func vcIsMovingFromParent(_ notification: Notification) {
         if ( notification.object is OstCreatePinViewController ) {
             self.getPinViewController = nil;
@@ -62,12 +66,12 @@ class OstAbortDeviceRecoveryWorkflowController: OstWorkflowCallbacks {
     }
     
     /// Mark - OstPinAcceptDelegate
-    override func pinProvided(pin: String) {
-        self.userPin = pin;
-        showLoader(progressText: .stopDeviceRecovery);
-        passphrasePrefixDelegate!.getPassphrase(ostUserId: self.userId,
-                                                passphrasePrefixAcceptDelegate: self);
-    }
+//    override func pinProvided(pin: String) {
+//        self.userPin = pin;
+//        showLoader(progressText: .stopDeviceRecovery);
+//        passphrasePrefixDelegate!.getPassphrase(ostUserId: self.userId,
+//                                                passphrasePrefixAcceptDelegate: self);
+//    }
     
     public override func cleanUpPinViewController() {
         self.sdkPinAcceptDelegate = nil;
