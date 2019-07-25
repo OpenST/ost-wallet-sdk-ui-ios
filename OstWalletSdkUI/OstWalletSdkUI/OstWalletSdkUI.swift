@@ -27,9 +27,8 @@ import UIKit
         userId: String,
         spendingLimit: String,
         expireAfterInSec: TimeInterval,
-        passphrasePrefixDelegate: OstPassphrasePrefixDelegate,
-        subscriber: OstWorkflowUIDelegate? = nil
-        ) -> OstWorkflowCallbacks {
+        passphrasePrefixDelegate: OstPassphrasePrefixDelegate
+        ) -> String {
         
         let workflowController = OstActivateUserWorkflowController(
             userId: userId,
@@ -37,10 +36,7 @@ import UIKit
             spendingLimit: spendingLimit,
             expireAfterInSec: expireAfterInSec)
         
-        _ = retainAndSubscribeWorkflow(workflowController: workflowController,
-                                          subscriber: subscriber)
-        
-        return workflowController
+        return workflowController.workflowId
     }
     
     @objc
@@ -49,15 +45,15 @@ import UIKit
         recoverDeviceAddress: String? = nil,
         passphrasePrefixDelegate: OstPassphrasePrefixDelegate,
         subscriber: OstWorkflowUIDelegate? = nil
-        ) -> OstWorkflow {
+        ) -> String {
         
         let workflowController = OstInitiateDeviceRecoveryWorkflowController(
             userId: userId,
             passphrasePrefixDelegate: passphrasePrefixDelegate,
             recoverDeviceAddress: recoverDeviceAddress)
         
-        return retainAndSubscribeWorkflow(workflowController: workflowController,
-                                          subscriber: subscriber)
+        return workflowController.workflowId
+
     }
     
     @objc
@@ -65,15 +61,14 @@ import UIKit
         userId: String,
         passphrasePrefixDelegate: OstPassphrasePrefixDelegate,
         subscriber: OstWorkflowUIDelegate? = nil
-        ) -> OstWorkflow {
+        ) -> String {
         
         let workflowController = OstAbortDeviceRecoveryWorkflowController(
             userId: userId,
             passphrasePrefixDelegate: passphrasePrefixDelegate
         )
         
-        return retainAndSubscribeWorkflow(workflowController: workflowController,
-                                          subscriber: subscriber)
+        return workflowController.workflowId
     }
     
     @objc
@@ -91,22 +86,4 @@ import UIKit
        OstSdkInteract.getInstance.unsubscribe(forWorkflowId: workflowId,
                                               listner: listner)
     }
-    
-    
-    //MARK: - Retain And Subscribe
-    private class func retainAndSubscribeWorkflow(
-        workflowController: OstWorkflowCallbacks,
-        subscriber: OstWorkflowUIDelegate?
-        ) -> OstWorkflow {
-        
-        OstSdkInteract.getInstance.retainWorkflowCallback(callback: workflowController)
-        if (nil != subscriber) {
-            OstSdkInteract.getInstance.subscribe(forWorkflowId: workflowController.workflowId,
-                                                 listner: subscriber!)
-        }
-        
-        let workflow = OstWorkflow(workflowCallbacks: workflowController)
-        return workflow;
-    }
-    
 }

@@ -346,11 +346,11 @@ class IntroViewController: OstBaseViewController, OWFlowInterruptedDelegate, OWR
     func activateUser() {
         removeProgressIndicator()
         let currentUse = CurrentUserModel.getInstance
-        let workflowObj = OstWalletSdkUI.activateUser(userId: currentUse.ostUserId!,
+        let workflowId = OstWalletSdkUI.activateUser(userId: currentUse.ostUserId!,
                                                       spendingLimit: OstUtils.toAtto("15"),
                                                       expireAfterInSec: TimeInterval(Double(14*24*60*60)),
                                                       passphrasePrefixDelegate: currentUse)
-        workflowObj.subscribe(workflowDelegate: currentUse)
+        OstWalletSdkUI.subscribe(workflowId: workflowId, listner: currentUse)
     }
     
     func onLoginSuccess() {

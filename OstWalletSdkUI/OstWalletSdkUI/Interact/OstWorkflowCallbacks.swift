@@ -49,7 +49,7 @@ import OstWalletSdk
     var getPinViewController: OstCreatePinViewController? = nil
 
     /// Mark - Workflow callback vars.
-    let workflowId: String
+    public let workflowId: String
     let userId: String
     
     var uiWindow: UIWindow? = nil
@@ -82,18 +82,6 @@ import OstWalletSdk
     
     deinit {
         print("OstWorkflowCallbacks :: I am deinit for \(self.workflowId)")
-    }
-    
-    @objc
-    public func subscribe(workflowDelegate: OstWorkflowUIDelegate) {
-        OstSdkInteract.getInstance.subscribe(forWorkflowId: self.workflowId,
-                                             listner: workflowDelegate)
-    }
-    
-    @objc
-    public func unsubscribe(workflowDelegate: OstWorkflowUIDelegate) {
-        OstSdkInteract.getInstance.unsubscribe(forWorkflowId: self.workflowId,
-                                               listner: workflowDelegate)
     }
     
     func observeViewControllerIsMovingFromParent() {
