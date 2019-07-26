@@ -25,8 +25,8 @@ import UIKit
     @objc
     public class func activateUser(
         userId: String,
-        spendingLimit: String,
         expireAfterInSec: TimeInterval,
+        spendingLimit: String,
         passphrasePrefixDelegate: OstPassphrasePrefixDelegate
         ) -> String {
         
@@ -53,7 +53,7 @@ import UIKit
             recoverDeviceAddress: recoverDeviceAddress)
         
         return workflowController.workflowId
-
+        
     }
     
     @objc
@@ -75,15 +75,15 @@ import UIKit
     public class func subscribe(workflowId: String,
                                 listner: OstWorkflowUIDelegate) {
         
-       OstSdkInteract.getInstance.subscribe(forWorkflowId: workflowId,
-                                            listner: listner)
+        OstSdkInteract.getInstance.subscribe(forWorkflowId: workflowId,
+                                             listner: listner)
     }
     
     @objc
     public class func unsubscribe(workflowId: String,
                                   listner: OstWorkflowUIDelegate) {
         
-       OstSdkInteract.getInstance.unsubscribe(forWorkflowId: workflowId,
-                                              listner: listner)
+        OstSdkInteract.getInstance.unsubscribe(forWorkflowId: workflowId,
+                                               listner: listner)
     }
 }

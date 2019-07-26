@@ -347,9 +347,9 @@ class IntroViewController: OstBaseViewController, OWFlowInterruptedDelegate, OWR
         removeProgressIndicator()
         let currentUse = CurrentUserModel.getInstance
         let workflowId = OstWalletSdkUI.activateUser(userId: currentUse.ostUserId!,
-                                                      spendingLimit: OstUtils.toAtto("15"),
-                                                      expireAfterInSec: TimeInterval(Double(14*24*60*60)),
-                                                      passphrasePrefixDelegate: currentUse)
+                                                     expireAfterInSec: TimeInterval(Double(14*24*60*60)),
+                                                     spendingLimit: OstUtils.toAtto("15"),
+                                                     passphrasePrefixDelegate: currentUse)
         OstWalletSdkUI.subscribe(workflowId: workflowId, listner: currentUse)
     }
     

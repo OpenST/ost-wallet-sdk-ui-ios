@@ -29,10 +29,9 @@ class OstActivateUserWorkflowController: OstWorkflowCallbacks {
         self.spendingLimit = spendingLimit
         self.expireAfterInSec = expireAfterInSec
         super.init(userId: userId, passphrasePrefixDelegate: passphrasePrefixDelegate)
-        self.createPinViewController = OstCreatePinViewController.newInstance(pinInputDelegate: self)
-        self.observeViewControllerIsMovingFromParent();
+        self.observeViewControllerIsMovingFromParent()
         
-        self.createPinViewController!.presentVCWithNavigation()
+        self.showCreatePinViewController()
     }
     deinit {
         print("OstActivateUserWorkflowController :: I am deinit ");
@@ -91,9 +90,17 @@ class OstActivateUserWorkflowController: OstWorkflowCallbacks {
         }
     }
     
+    func showCreatePinViewController() {
+        DispatchQueue.main.sync {
+            self.createPinViewController = OstCreatePinViewController.newInstance(pinInputDelegate: self)
+            self.createPinViewController!.presentVCWithNavigation()
+        }
+    }
     func showConfirmPinViewController() {
-        self.confirmPinViewController = OstConfirmNewPinViewController.newInstance(pinInputDelegate: self);
-        self.confirmPinViewController?.pushViewControllerOn(self.createPinViewController!);
+        DispatchQueue.main.sync {
+            self.confirmPinViewController = OstConfirmNewPinViewController.newInstance(pinInputDelegate: self);
+            self.confirmPinViewController?.pushViewControllerOn(self.createPinViewController!);
+        }
     }
     
     override func dismissPinViewController() {
