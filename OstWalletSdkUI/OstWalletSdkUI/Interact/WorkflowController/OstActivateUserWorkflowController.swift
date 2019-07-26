@@ -18,7 +18,7 @@ class OstActivateUserWorkflowController: OstWorkflowCallbacks {
     let expireAfterInSec:TimeInterval
     
     /// Mark - View Controllers.
-    var setPinViewController: OstCreatePinViewController? = nil
+    var createPinViewController: OstCreatePinViewController? = nil
     var confirmPinViewController: OstConfirmNewPinViewController?;
     
     init(userId: String,
@@ -29,10 +29,10 @@ class OstActivateUserWorkflowController: OstWorkflowCallbacks {
         self.spendingLimit = spendingLimit
         self.expireAfterInSec = expireAfterInSec
         super.init(userId: userId, passphrasePrefixDelegate: passphrasePrefixDelegate)
-        self.setPinViewController = OstCreatePinViewController.newInstance(pinInputDelegate: self)
+        self.createPinViewController = OstCreatePinViewController.newInstance(pinInputDelegate: self)
         self.observeViewControllerIsMovingFromParent();
         
-        self.setPinViewController!.presentVCWithNavigation()
+        self.createPinViewController!.presentVCWithNavigation()
     }
     deinit {
         print("OstActivateUserWorkflowController :: I am deinit ");
@@ -45,8 +45,8 @@ class OstActivateUserWorkflowController: OstWorkflowCallbacks {
     @objc override func vcIsMovingFromParent(_ notification: Notification) {
         if ( notification.object is OstConfirmNewPinViewController ) {
             self.confirmPinViewController = nil;
-        } else if ( notification.object is OstSetNewPinViewController ) {
-            self.setPinViewController = nil;
+        } else if ( notification.object is OstCreatePinViewController ) {
+            self.createPinViewController = nil;
             //The workflow has been cancled by user.
             
             self.flowInterrupted(workflowContext: OstWorkflowContext(workflowType: .activateUser),
@@ -93,20 +93,20 @@ class OstActivateUserWorkflowController: OstWorkflowCallbacks {
     
     func showConfirmPinViewController() {
         self.confirmPinViewController = OstConfirmNewPinViewController.newInstance(pinInputDelegate: self);
-        self.confirmPinViewController?.pushViewControllerOn(self.setPinViewController!);
+        self.confirmPinViewController?.pushViewControllerOn(self.createPinViewController!);
     }
     
     override func dismissPinViewController() {
-        setPinViewController?.removeViewController()
-        setPinViewController = nil
+        createPinViewController?.removeViewController()
+        createPinViewController = nil
     }
     
     override func cleanUp() {
         super.cleanUp();
-        if ( nil != self.setPinViewController ) {
-            self.setPinViewController?.removeViewController();
+        if ( nil != self.createPinViewController ) {
+            self.createPinViewController?.removeViewController();
         }
-        self.setPinViewController = nil;
+        self.createPinViewController = nil;
         self.confirmPinViewController = nil;
         self.passphrasePrefixDelegate = nil;
         self.progressIndicator = nil
