@@ -387,6 +387,7 @@ class SetupUserViewController: OstBaseScrollViewController, UITextFieldDelegate,
                                                           passphrasePrefixDelegate: currentUse)
 
             OstWalletSdkUI.subscribe(workflowId: workflowId, listner: currentUse)
+            OstWalletSdkUI.subscribe(workflowId: workflowId, listner: self!)
         }
         
         continueWorkflow(nil)

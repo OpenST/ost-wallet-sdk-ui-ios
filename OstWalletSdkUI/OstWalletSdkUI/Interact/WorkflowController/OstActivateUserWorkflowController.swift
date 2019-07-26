@@ -91,27 +91,27 @@ class OstActivateUserWorkflowController: OstWorkflowCallbacks {
     }
     
     func showCreatePinViewController() {
-        DispatchQueue.main.sync {
+        DispatchQueue.main.async {
             self.createPinViewController = OstCreatePinViewController.newInstance(pinInputDelegate: self)
             self.createPinViewController!.presentVCWithNavigation()
         }
     }
     func showConfirmPinViewController() {
-        DispatchQueue.main.sync {
+        DispatchQueue.main.async {
             self.confirmPinViewController = OstConfirmNewPinViewController.newInstance(pinInputDelegate: self);
             self.confirmPinViewController?.pushViewControllerOn(self.createPinViewController!);
         }
     }
     
     override func dismissPinViewController() {
-        createPinViewController?.removeViewController()
-        createPinViewController = nil
+        self.createPinViewController?.removeViewController()
+        self.createPinViewController = nil
     }
     
     override func cleanUp() {
         super.cleanUp();
         if ( nil != self.createPinViewController ) {
-            self.createPinViewController?.removeViewController();
+           dismissPinViewController()
         }
         self.createPinViewController = nil;
         self.confirmPinViewController = nil;
