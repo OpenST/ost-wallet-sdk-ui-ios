@@ -45,11 +45,12 @@ class OstPinViewController: OstBaseScrollViewController {
     
     let termsAndConditionLabel: UITextView = {
         let label = UITextView()
+        let h4Config = OstTheme1.getInstance().getH4Config()
         label.isEditable = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.font = OstTheme.fontProvider.get(size: 12)
-        label.textColor = UIColor.color(136, 136, 136)
+        label.font = h4Config.getFont()
+        label.textColor = h4Config.getColor()
         
         return label
     }()
