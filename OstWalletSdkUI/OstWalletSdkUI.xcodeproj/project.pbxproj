@@ -9,25 +9,11 @@
 /* Begin PBXBuildFile section */
 		4B27C24E22E5F4C20063FC91 /* OstAuthorizeDeviceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B27C24D22E5F4C20063FC91 /* OstAuthorizeDeviceListViewController.swift */; };
 		4B27C25322E5F7170063FC91 /* OstBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B27C25022E5F7160063FC91 /* OstBaseTableViewCell.swift */; };
-		4B7B881D22E83E8000251B62 /* OstTheme1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B881C22E83E8000251B62 /* OstTheme1.swift */; };
+		4B7B881D22E83E8000251B62 /* OstTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B881C22E83E8000251B62 /* OstTheme.swift */; };
 		4B7B882022E8619500251B62 /* OstLabelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B881F22E8619500251B62 /* OstLabelConfig.swift */; };
 		4B7B882222E861A500251B62 /* OstButtonConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B882122E861A500251B62 /* OstButtonConfig.swift */; };
-		4B7B883522E86DB200251B62 /* BaseTheamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B882422E86DB200251B62 /* BaseTheamer.swift */; };
-		4B7B883622E86DB200251B62 /* OstSecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B882622E86DB200251B62 /* OstSecondaryButton.swift */; };
-		4B7B883722E86DB200251B62 /* OstLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B882722E86DB200251B62 /* OstLinkButton.swift */; };
-		4B7B883822E86DB200251B62 /* OstButtonTheamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B882822E86DB200251B62 /* OstButtonTheamer.swift */; };
-		4B7B883922E86DB200251B62 /* OstPrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B882922E86DB200251B62 /* OstPrimaryButton.swift */; };
-		4B7B883A22E86DB200251B62 /* OstH1Theamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B882B22E86DB200251B62 /* OstH1Theamer.swift */; };
-		4B7B883B22E86DB200251B62 /* OstLabelTheamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B882C22E86DB200251B62 /* OstLabelTheamer.swift */; };
-		4B7B883C22E86DB200251B62 /* OstLeadLabelTheamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B882D22E86DB200251B62 /* OstLeadLabelTheamer.swift */; };
 		4B7B883D22E86DB200251B62 /* OstNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B882F22E86DB200251B62 /* OstNavigation.swift */; };
-		4B7B883E22E86DB200251B62 /* OstBlueNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B883022E86DB200251B62 /* OstBlueNavigation.swift */; };
-		4B7B883F22E86DB200251B62 /* OstUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B883122E86DB200251B62 /* OstUIKit.swift */; };
-		4B7B884022E86DB200251B62 /* OstFontProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B883322E86DB200251B62 /* OstFontProvider.swift */; };
-		4B7B884122E86DB200251B62 /* OstTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B883422E86DB200251B62 /* OstTheme.swift */; };
-		4B7B884722E86DC100251B62 /* OstLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B884322E86DC100251B62 /* OstLabel.swift */; };
 		4B7B884822E86DC100251B62 /* InsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B884422E86DC100251B62 /* InsetLabel.swift */; };
-		4B7B884922E86DC100251B62 /* OstButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B884622E86DC100251B62 /* OstButton.swift */; };
 		4B7B884D22E86F8900251B62 /* OstLabel1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B884C22E86F8900251B62 /* OstLabel1.swift */; };
 		4B7B884F22E8706E00251B62 /* OstH1Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B884E22E8706E00251B62 /* OstH1Label.swift */; };
 		4B7B88A322E896A800251B62 /* OstH2Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B88A222E896A800251B62 /* OstH2Label.swift */; };
@@ -83,25 +69,11 @@
 /* Begin PBXFileReference section */
 		4B27C24D22E5F4C20063FC91 /* OstAuthorizeDeviceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OstAuthorizeDeviceListViewController.swift; sourceTree = "<group>"; };
 		4B27C25022E5F7160063FC91 /* OstBaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstBaseTableViewCell.swift; sourceTree = "<group>"; };
-		4B7B881C22E83E8000251B62 /* OstTheme1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OstTheme1.swift; sourceTree = "<group>"; };
+		4B7B881C22E83E8000251B62 /* OstTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OstTheme.swift; sourceTree = "<group>"; };
 		4B7B881F22E8619500251B62 /* OstLabelConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OstLabelConfig.swift; sourceTree = "<group>"; };
 		4B7B882122E861A500251B62 /* OstButtonConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OstButtonConfig.swift; sourceTree = "<group>"; };
-		4B7B882422E86DB200251B62 /* BaseTheamer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTheamer.swift; sourceTree = "<group>"; };
-		4B7B882622E86DB200251B62 /* OstSecondaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstSecondaryButton.swift; sourceTree = "<group>"; };
-		4B7B882722E86DB200251B62 /* OstLinkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstLinkButton.swift; sourceTree = "<group>"; };
-		4B7B882822E86DB200251B62 /* OstButtonTheamer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstButtonTheamer.swift; sourceTree = "<group>"; };
-		4B7B882922E86DB200251B62 /* OstPrimaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstPrimaryButton.swift; sourceTree = "<group>"; };
-		4B7B882B22E86DB200251B62 /* OstH1Theamer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstH1Theamer.swift; sourceTree = "<group>"; };
-		4B7B882C22E86DB200251B62 /* OstLabelTheamer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstLabelTheamer.swift; sourceTree = "<group>"; };
-		4B7B882D22E86DB200251B62 /* OstLeadLabelTheamer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstLeadLabelTheamer.swift; sourceTree = "<group>"; };
 		4B7B882F22E86DB200251B62 /* OstNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstNavigation.swift; sourceTree = "<group>"; };
-		4B7B883022E86DB200251B62 /* OstBlueNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstBlueNavigation.swift; sourceTree = "<group>"; };
-		4B7B883122E86DB200251B62 /* OstUIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstUIKit.swift; sourceTree = "<group>"; };
-		4B7B883322E86DB200251B62 /* OstFontProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstFontProvider.swift; sourceTree = "<group>"; };
-		4B7B883422E86DB200251B62 /* OstTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstTheme.swift; sourceTree = "<group>"; };
-		4B7B884322E86DC100251B62 /* OstLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstLabel.swift; sourceTree = "<group>"; };
 		4B7B884422E86DC100251B62 /* InsetLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsetLabel.swift; sourceTree = "<group>"; };
-		4B7B884622E86DC100251B62 /* OstButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstButton.swift; sourceTree = "<group>"; };
 		4B7B884C22E86F8900251B62 /* OstLabel1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OstLabel1.swift; sourceTree = "<group>"; };
 		4B7B884E22E8706E00251B62 /* OstH1Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OstH1Label.swift; sourceTree = "<group>"; };
 		4B7B88A222E896A800251B62 /* OstH2Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OstH2Label.swift; sourceTree = "<group>"; };
@@ -203,72 +175,12 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		4B7B882322E86DB200251B62 /* Theamers */ = {
-			isa = PBXGroup;
-			children = (
-				4B7B882422E86DB200251B62 /* BaseTheamer.swift */,
-				4B7B882522E86DB200251B62 /* Buttons */,
-				4B7B882A22E86DB200251B62 /* Labels */,
-				4B7B882E22E86DB200251B62 /* Navigation */,
-				4B7B883122E86DB200251B62 /* OstUIKit.swift */,
-				4B7B883222E86DB200251B62 /* Fonts */,
-				4B7B883422E86DB200251B62 /* OstTheme.swift */,
-			);
-			path = Theamers;
-			sourceTree = "<group>";
-		};
-		4B7B882522E86DB200251B62 /* Buttons */ = {
-			isa = PBXGroup;
-			children = (
-				4B7B882622E86DB200251B62 /* OstSecondaryButton.swift */,
-				4B7B882722E86DB200251B62 /* OstLinkButton.swift */,
-				4B7B882822E86DB200251B62 /* OstButtonTheamer.swift */,
-				4B7B882922E86DB200251B62 /* OstPrimaryButton.swift */,
-			);
-			path = Buttons;
-			sourceTree = "<group>";
-		};
-		4B7B882A22E86DB200251B62 /* Labels */ = {
-			isa = PBXGroup;
-			children = (
-				4B7B882B22E86DB200251B62 /* OstH1Theamer.swift */,
-				4B7B882C22E86DB200251B62 /* OstLabelTheamer.swift */,
-				4B7B882D22E86DB200251B62 /* OstLeadLabelTheamer.swift */,
-			);
-			path = Labels;
-			sourceTree = "<group>";
-		};
-		4B7B882E22E86DB200251B62 /* Navigation */ = {
-			isa = PBXGroup;
-			children = (
-				4B7B883022E86DB200251B62 /* OstBlueNavigation.swift */,
-			);
-			path = Navigation;
-			sourceTree = "<group>";
-		};
-		4B7B883222E86DB200251B62 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				4B7B883322E86DB200251B62 /* OstFontProvider.swift */,
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
 		4B7B884222E86DC100251B62 /* Labels */ = {
 			isa = PBXGroup;
 			children = (
-				4B7B884322E86DC100251B62 /* OstLabel.swift */,
 				4B7B884422E86DC100251B62 /* InsetLabel.swift */,
 			);
 			path = Labels;
-			sourceTree = "<group>";
-		};
-		4B7B884522E86DC100251B62 /* Buttons */ = {
-			isa = PBXGroup;
-			children = (
-				4B7B884622E86DC100251B62 /* OstButton.swift */,
-			);
-			path = Buttons;
 			sourceTree = "<group>";
 		};
 		4B7B884A22E86F6F00251B62 /* UIComponents */ = {
@@ -299,7 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				4B7B881E22E8616C00251B62 /* Models */,
-				4B7B881C22E83E8000251B62 /* OstTheme1.swift */,
+				4B7B881C22E83E8000251B62 /* OstTheme.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -361,7 +273,6 @@
 			isa = PBXGroup;
 			children = (
 				4B7B884A22E86F6F00251B62 /* UIComponents */,
-				4B7B882322E86DB200251B62 /* Theamers */,
 				4B7B881B22E83E4000251B62 /* Config */,
 				4B27C24F22E5F6DE0063FC91 /* Cells */,
 				4BDE732822E579FC00F906D1 /* Views */,
@@ -470,7 +381,6 @@
 		4BDE732822E579FC00F906D1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4B7B884522E86DC100251B62 /* Buttons */,
 				4B7B884222E86DC100251B62 /* Labels */,
 				4BDE732922E579FC00F906D1 /* PinInput */,
 				4BDE733222E579FC00F906D1 /* OstBaseView.swift */,
@@ -597,13 +507,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B7B883B22E86DB200251B62 /* OstLabelTheamer.swift in Sources */,
 				4BDE734722E57AA800F906D1 /* UIVIew+NSLayoutConstraintHelper.swift in Sources */,
-				4B7B884122E86DB200251B62 /* OstTheme.swift in Sources */,
 				4BDE731422E1E12B00F906D1 /* UIController+Presenter.swift in Sources */,
 				4BDE734C22E57DEF00F906D1 /* OstSdkInteract.swift in Sources */,
 				4B7B88B722E9856300251B62 /* OstPinViewController.swift in Sources */,
-				4B7B883622E86DB200251B62 /* OstSecondaryButton.swift in Sources */,
 				4B27C25322E5F7170063FC91 /* OstBaseTableViewCell.swift in Sources */,
 				4B7B884F22E8706E00251B62 /* OstH1Label.swift in Sources */,
 				4BDE731722E577B800F906D1 /* OstPassphrasePrefixDelegate.swift in Sources */,
@@ -613,25 +520,17 @@
 				4B7B884822E86DC100251B62 /* InsetLabel.swift in Sources */,
 				4BDE734D22E57DEF00F906D1 /* OstWFCPinManager.swift in Sources */,
 				4BDE732722E5791900F906D1 /* OstBaseViewController.swift in Sources */,
-				4B7B883522E86DB200251B62 /* BaseTheamer.swift in Sources */,
-				4B7B881D22E83E8000251B62 /* OstTheme1.swift in Sources */,
+				4B7B881D22E83E8000251B62 /* OstTheme.swift in Sources */,
 				4BDE733822E579FC00F906D1 /* OstPinInput.swift in Sources */,
-				4B7B884722E86DC100251B62 /* OstLabel.swift in Sources */,
-				4B7B883C22E86DB200251B62 /* OstLeadLabelTheamer.swift in Sources */,
 				4BDE730322E1CA9700F906D1 /* OstWorkflowUIDelegate.swift in Sources */,
 				4B7B883D22E86DB200251B62 /* OstNavigation.swift in Sources */,
 				4BDE731222E1DD2C00F906D1 /* UIColor+Helper.swift in Sources */,
 				4BDE745A22E5C96E00F906D1 /* Notification+Name.swift in Sources */,
 				4B9431B122EF0C3600966372 /* OstC2Label.swift in Sources */,
-				4B7B883822E86DB200251B62 /* OstButtonTheamer.swift in Sources */,
-				4B7B883722E86DB200251B62 /* OstLinkButton.swift in Sources */,
-				4B7B883F22E86DB200251B62 /* OstUIKit.swift in Sources */,
 				4BDE734822E57AA800F906D1 /* UIFont+Helpers.swift in Sources */,
 				4B7B882022E8619500251B62 /* OstLabelConfig.swift in Sources */,
 				4B9431B822EF1CBB00966372 /* OstB1Button.swift in Sources */,
 				4B7B884D22E86F8900251B62 /* OstLabel1.swift in Sources */,
-				4B7B883A22E86DB200251B62 /* OstH1Theamer.swift in Sources */,
-				4B7B884022E86DB200251B62 /* OstFontProvider.swift in Sources */,
 				4BDE730022E1CA4D00F906D1 /* OstWalletSdkUI.swift in Sources */,
 				4B27C24E22E5F4C20063FC91 /* OstAuthorizeDeviceListViewController.swift in Sources */,
 				4B7B882222E861A500251B62 /* OstButtonConfig.swift in Sources */,
@@ -644,15 +543,12 @@
 				4BDE736F22E582BC00F906D1 /* WKWebViewController.swift in Sources */,
 				4BDE733E22E579FC00F906D1 /* OstBaseView.swift in Sources */,
 				4BDE732622E5791900F906D1 /* OstBaseScrollViewController.swift in Sources */,
-				4B7B884922E86DC100251B62 /* OstButton.swift in Sources */,
 				4B7B88A322E896A800251B62 /* OstH2Label.swift in Sources */,
 				4B9431B622EF1ABA00966372 /* OstBaseConfig.swift in Sources */,
 				4BDE731A22E578AF00F906D1 /* OstAbortDeviceWorkflowController.swift in Sources */,
 				4B9431AF22EF09C700966372 /* OstC1Label.swift in Sources */,
 				4BDE734222E579FC00F906D1 /* OstProgressIndicator.swift in Sources */,
 				4B7B88AB22E8A2AE00251B62 /* OstContent.swift in Sources */,
-				4B7B883922E86DB200251B62 /* OstPrimaryButton.swift in Sources */,
-				4B7B883E22E86DB200251B62 /* OstBlueNavigation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

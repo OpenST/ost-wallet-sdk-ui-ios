@@ -59,7 +59,7 @@ import Foundation
         self.translatesAutoresizingMaskIntoConstraints = false
         self.textAlignment = .center
         
-        self.font = getFont()
+        self.font = labelConfig!.getFont()
         self.textColor = self.labelConfig!.getColor()
         
         if nil == labelAttributedText {

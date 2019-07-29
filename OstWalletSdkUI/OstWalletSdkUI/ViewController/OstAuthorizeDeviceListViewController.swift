@@ -42,9 +42,8 @@ class OstAuthorizeDeviceListViewController: OstBaseViewController, UITableViewDe
         tableView.rowHeight = UITableView.automaticDimension
         tableView.sectionHeaderHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
-        tableView.backgroundColor = .red
         tableView.translatesAutoresizingMaskIntoConstraints = false
-
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
         return tableView
     }()
 

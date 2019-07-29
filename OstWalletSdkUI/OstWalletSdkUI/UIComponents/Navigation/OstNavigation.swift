@@ -10,8 +10,6 @@ import Foundation
 import UIKit
 
 class OstNavigation {
-    //Font Provider
-    var fontProvider: OstFontProvider?;
     
     //Font-Size
     var fontSize: CGFloat = 16;
@@ -73,13 +71,6 @@ class OstNavigation {
         }
     }
     
-    func getFontProvider() -> OstFontProvider {
-        if ( nil != fontProvider) {
-            return fontProvider!;
-        }
-        return OstTheme.fontProvider;
-    }
-    
     func createWithImage(image: UIImage, target: AnyObject?, action: Selector) -> [UIBarButtonItem] {
         // recommended maximum image height 22 points (i.e. 22 @1x, 44 @2x, 66 @3x)
         let negativeSpacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.fixedSpace, target: nil, action: nil)
@@ -87,7 +78,7 @@ class OstNavigation {
         
         let backImageView = UIImageView(image: image)
         let customBarButton = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
-        backImageView.frame = CGRect(x: 0, y: 12, width: 16, height: 16)
+        backImageView.frame = CGRect(x: 0, y: 16, width: 16, height: 16)
         backImageView.contentMode = .scaleAspectFit
         customBarButton.addSubview(backImageView)
         customBarButton.addTarget(target, action: action, for: .touchUpInside)

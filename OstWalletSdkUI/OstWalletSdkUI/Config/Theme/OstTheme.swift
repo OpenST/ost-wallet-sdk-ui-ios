@@ -11,14 +11,14 @@
 
 import Foundation
 
-@objc class OstTheme1: NSObject {
-    private static var instance: OstTheme1? = nil
+@objc class OstTheme: NSObject {
+    private static var instance: OstTheme? = nil
     var themeConfig: [String: Any] = [:]
     
-    class func getInstance() -> OstTheme1 {
-        var instance = OstTheme1.instance
+    class func getInstance() -> OstTheme {
+        var instance = OstTheme.instance
         if nil == instance {
-            instance = OstTheme1(themeConfig: [:])
+            instance = OstTheme(themeConfig: [:])
         }
         return instance!
     }
@@ -26,7 +26,7 @@ import Foundation
     init(themeConfig: [String: Any]) {
         self.themeConfig = themeConfig
         super.init()
-        OstTheme1.instance = self
+        OstTheme.instance = self
     }
     
     
@@ -100,27 +100,39 @@ import Foundation
     static let theme: [String: Any] = [
         "h1": ["size": 20,
                "font": "SFProDisplay",
-               "color": "#438bad"],
+               "color": "#438bad",
+               "font_style": "semi_bold"
+        ],
         
         "h2": ["size": 17,
                "font": "SFProDisplay",
-               "color": "#666666"],
+               "color": "#666666",
+               "font_style": "medium"
+        ],
         
         "h3": ["size": 15,
                "font": "SFProDisplay",
-               "color": "#888888"],
+               "color": "#888888",
+               "font_style": "regular"
+        ],
         
         "h4": ["size": 12,
                "font": "SFProDisplay",
-               "color": "#888888"],
+               "color": "#888888",
+               "font_style": "regular"
+        ],
         
         "c1": ["size": 14,
                "font": "SFProDisplay",
-               "color": "#484848"],
+               "color": "#484848",
+               "font_style": "bold"
+        ],
         
         "c2": ["size": 12,
                "font": "SFProDisplay",
-               "color": "#6F6F6F"],
+               "color": "#6F6F6F",
+               "font_style": "regular"
+        ],
         
         "b1": [
             "size": 17,

@@ -13,10 +13,6 @@ import Foundation
 
 @objc class OstH2Label: OstLabel1 {
     override func setThemeConfig() {
-        self.labelConfig = OstTheme1.getInstance().getH2Config()
-    }
-    
-    override func getFont() -> UIFont {
-        return labelConfig!.getFont(weight: .medium)
+        self.labelConfig = OstTheme.getInstance().getH2Config()
     }
 }

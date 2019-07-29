@@ -23,4 +23,24 @@ extension UIFont {
     func italic(size: CGFloat = 0) -> UIFont {
         return withTraits(traits: .traitItalic, size: size);
     }
+    
+    class func getFontWeight(_ weight: String) -> Weight {
+        if weight.caseInsensitiveCompare("bold") == .orderedSame {
+            return .bold
+        }
+        
+        if weight.caseInsensitiveCompare("regular") == .orderedSame {
+            return .regular
+        }
+        
+        if weight.caseInsensitiveCompare("medium") == .orderedSame {
+            return .medium
+        }
+        
+        if weight.caseInsensitiveCompare("semi_bold") == .orderedSame {
+            return .semibold
+        }
+        
+        return .regular
+    }
 }

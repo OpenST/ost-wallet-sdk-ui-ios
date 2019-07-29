@@ -14,10 +14,6 @@ import Foundation
 @objc class OstH1Label: OstLabel1 {
     
     override func setThemeConfig() {
-       self.labelConfig = OstTheme1.getInstance().getH1Config()
-    }
-
-    override func getFont() -> UIFont {
-        return labelConfig!.getFont(weight: .semibold)
+       self.labelConfig = OstTheme.getInstance().getH1Config()
     }
 }

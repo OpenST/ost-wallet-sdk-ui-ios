@@ -14,7 +14,7 @@ import UIKit
     
     @objc
     public class func setThemeConfig(_ config: [String: Any]) {
-        _ = OstTheme1(themeConfig: config)
+        _ = OstTheme(themeConfig: config)
     }
     
     @objc

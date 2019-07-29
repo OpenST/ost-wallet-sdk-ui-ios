@@ -54,7 +54,7 @@ class OstPinViewController: OstBaseScrollViewController {
     
     let termsAndConditionLabel: UITextView = {
         let label = UITextView()
-        let h4Config = OstTheme1.getInstance().getH4Config()
+        let h4Config = OstTheme.getInstance().getH4Config()
         label.isEditable = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
@@ -133,8 +133,8 @@ class OstPinViewController: OstBaseScrollViewController {
     
     func setupTermsAndConditionLabel() {
         
-        let attributes: [NSAttributedString.Key : Any] = [.font: OstTheme1.getInstance().getH4Config().getFont(),
-                                                          .foregroundColor: OstTheme1.getInstance().getH4Config().getColor() ]
+        let attributes: [NSAttributedString.Key : Any] = [.font: OstTheme.getInstance().getH4Config().getFont(),
+                                                          .foregroundColor: OstTheme.getInstance().getH4Config().getColor() ]
         
         let attributedString = NSMutableAttributedString(string: "Your PIN will be used to authorise sessions, transactions, redemptions and recover wallet.",
                                                          attributes: attributes)

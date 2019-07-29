@@ -14,7 +14,7 @@ import Foundation
 class OstB1Button: OstBaseButton {
     
     override func setThemeConfig() {
-        self.buttonConfig = OstTheme1.getInstance().getB1Config()
+        self.buttonConfig = OstTheme.getInstance().getB1Config()
         
         let activeBgImg = UIImage.withColor(color: buttonConfig!.getBackgroundColor());
         setBackgroundImage(image: activeBgImg, state: .normal);

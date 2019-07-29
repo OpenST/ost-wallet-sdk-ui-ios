@@ -122,10 +122,10 @@ class OstDeviceTableViewCell: OstBaseTableViewCell {
     }
     
     func deviceCellBackgroundViewApplyConstraints() {
-        deviceCellBackgroundView.topAlignWithParent(multiplier: 1, constant: 20)
+        deviceCellBackgroundView.topAlignWithParent(multiplier: 1, constant: 0)
         deviceCellBackgroundView.leftAlignWithParent(multiplier: 1, constant: 20)
         deviceCellBackgroundView.rightAlignWithParent(multiplier: 1, constant: -20)
-        deviceCellBackgroundView.bottomAlignWithParent(multiplier: 1, constant: 0)
+        deviceCellBackgroundView.bottomAlignWithParent(multiplier: 1, constant: -20)
     }
     
     func phoneImageViewApplyConstraints() {
@@ -139,7 +139,7 @@ class OstDeviceTableViewCell: OstBaseTableViewCell {
         deviceDetailsContainer.topAlignWithParent(multiplier: 1, constant: 18)
         deviceDetailsContainer.leftWithRightAlign(toItem: phoneImageView, constant: 24)
         deviceDetailsContainer.rightAlignWithParent()
-        deviceDetailsContainer.bottomAlignWithParent(multiplier: 1, constant: -20)
+        deviceDetailsContainer.bottomAlignWithParent(multiplier: 1, constant: -18)
     }
     
     func deviceNameLabelApplyConstraints() {
@@ -149,19 +149,19 @@ class OstDeviceTableViewCell: OstBaseTableViewCell {
     }
     
     func deviceAddressTextLabelApplyConstraints() {
-        deviceAddressTextLabel.placeBelow(toItem: deviceNameLabel, multiplier: 1, constant: 16)
+        deviceAddressTextLabel.placeBelow(toItem: deviceNameLabel, multiplier: 1, constant: 10)
         deviceAddressTextLabel.leftAlignWithParent()
         deviceAddressTextLabel.rightAlignWithParent(multiplier: 1, constant: -10)
     }
     
     func deviceAddressLabelApplyConstraitns() {
-        deviceAddressLabel.placeBelow(toItem: deviceAddressTextLabel, multiplier: 1, constant: 8)
+        deviceAddressLabel.placeBelow(toItem: deviceAddressTextLabel, multiplier: 1, constant: 4)
         deviceAddressLabel.leftAlignWithParent()
         deviceAddressLabel.rightAlignWithParent(multiplier: 1, constant: -10)
     }
     
     func actionButtonApplyConstraitns() {
-        actionButton.placeBelow(toItem: deviceAddressLabel, multiplier: 1, constant: 18)
+        actionButton.placeBelow(toItem: deviceAddressLabel, multiplier: 1, constant: 15)
         actionButton.leftAlignWithParent()
         actionButton.bottomAlignWithParent()
     }

@@ -112,7 +112,7 @@ class OstActivateUserWorkflowController: OstWorkflowCallbacks {
     override func cleanUp() {
         super.cleanUp();
         if ( nil != self.createPinViewController ) {
-           self.createPinViewController?.removeViewController()
+           self.createPinViewController?.removeViewController(flowEnded: true)
         }
         self.createPinViewController = nil;
         self.confirmPinViewController = nil;
