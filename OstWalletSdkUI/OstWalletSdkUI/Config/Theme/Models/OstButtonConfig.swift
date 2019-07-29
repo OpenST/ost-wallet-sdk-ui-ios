@@ -11,13 +11,19 @@
 
 import Foundation
 
-@objc class OstButtonConfig: NSObject {
-    let backgroundColor: UIColor
+@objc class OstButtonConfig: OstBaseConfig {
+    private let backgroundColor: UIColor
     
-    init(config: [String: Any]?,
-         defaultConfig: [String: Any]) {
-        
+    override init(config: [String: Any]?,
+                  defaultConfig: [String: Any]) {
+
         let colorStr = (config?["background_color"] as? String) ?? (defaultConfig["background_color"] as! String)
-        self.backgroundColor = UIColor.color(hex: colorStr)   
+        self.backgroundColor = UIColor.color(hex: colorStr)
+        
+        super.init(config: config, defaultConfig: defaultConfig)
+    }
+    
+    func getBackgroundColor() -> UIColor {
+        return backgroundColor
     }
 }

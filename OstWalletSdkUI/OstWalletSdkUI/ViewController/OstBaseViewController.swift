@@ -18,6 +18,8 @@ class OstBaseViewController: UIViewController, UINavigationControllerDelegate, U
     func getApplicationWindow() -> UIWindow? {
         return UIApplication.shared.keyWindow
     }
+    
+    var userId: String? = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,8 +96,8 @@ class OstBaseViewController: UIViewController, UINavigationControllerDelegate, U
         self.removeViewController();
     }
     
-    func removeViewController(animated flag: Bool = true, completion: (() -> Void)? = nil) {
-        if ( nil != self.navigationController && self.navigationController!.viewControllers.first! != self ) {
+    func removeViewController(animated flag: Bool = true, completion: (() -> Void)? = nil, flowEnded: Bool = false) {
+        if ( nil != self.navigationController && self.navigationController!.viewControllers.first! != self && !flowEnded ) {
             let selfIndex = self.navigationController?.viewControllers.firstIndex(of: self)
             if nil == selfIndex {
                 return

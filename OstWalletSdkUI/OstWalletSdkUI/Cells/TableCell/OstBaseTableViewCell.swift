@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseTableViewCell: UITableViewCell {
+class OstBaseTableViewCell: UITableViewCell {
     
 //    let containerView: UIView = {
 //        let view = UIView()
@@ -19,36 +19,45 @@ class BaseTableViewCell: UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
+        setVariables()
+        
         createViews()
         applyConstraints()
-
-        setVariables()
+        setValuesForComponents()
+        
+        self.selectionStyle = .none
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setVariables()
+        
         createViews()
         applyConstraints()
-
+        
+        setValuesForComponents()
+        self.selectionStyle = .none
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-//        applyConstraints()
     }
     
+    func addToContentView(_ view: UIView) {
+        self.contentView.addSubview(view)
+    }
+
     //MARK: - Functions to override
-    func createViews() {
-//        self.addSubview(containerView)
-    }
+    
     func setVariables() {}
-    func applyConstraints() {
-//        containerView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-//        containerView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-//        containerView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-    }
+    
+    func createViews() {}
+
+    func applyConstraints() {}
+    
+    func setValuesForComponents() {}
     
     func beingDisplay() {}
     

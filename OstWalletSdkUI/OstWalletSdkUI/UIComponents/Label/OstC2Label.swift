@@ -9,9 +9,14 @@
  http://www.apache.org/licenses/LICENSE-2.0
  */
 
-import UIKit
 import Foundation
 
-@objc class OstLabelConfig: OstBaseConfig {
+class OstC2Label: OstLabel1 {
+    override func setThemeConfig() {
+        self.labelConfig = OstTheme1.getInstance().getC2Config()
+    }
     
+    override func getFont() -> UIFont {
+        return labelConfig!.getFont(weight: .regular)
+    }
 }

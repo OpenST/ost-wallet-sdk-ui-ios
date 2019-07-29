@@ -12,30 +12,28 @@
 import Foundation
 import OstWalletSdk
 
-class OstAuthorizeDeviceListViewController: OstBaseViewController, UITableViewDelegate, UITableViewDataSource {
+class OstAuthorizeDeviceListViewController: OstBaseViewController, UITableViewDelegate, UITableViewDataSource, OstJsonApiDelegate {
     
-    public class func newInstance(callBack: @escaping (([String: Any]) -> Void)) -> OstAuthorizeDeviceListViewController {
+    public class func newInstance(userId: String,
+                                  callBack: @escaping (([String: Any]?) -> Void)) -> OstAuthorizeDeviceListViewController {
         let instance = OstAuthorizeDeviceListViewController()
-        setEssentials(instance: instance, callBack: callBack)
+        setEssentials(instance: instance,
+                      userId: userId,
+                      callBack: callBack)
         return instance;
     }
     
-    class func setEssentials(instance: OstAuthorizeDeviceListViewController, callBack: @escaping (([String: Any]) -> Void)) {
+    class func setEssentials(instance: OstAuthorizeDeviceListViewController,
+                             userId: String,
+                             callBack: @escaping (([String: Any]?) -> Void)) {
         instance.onCellSelected = callBack
+        instance.userId = userId
     }
     
-    var onCellSelected: (([String: Any]) ->Void)? = nil
+    var onCellSelected: (([String: Any]?) ->Void)? = nil
 
     enum DeviceStatus: String {
         case authorized
-    }
-
-    override func getNavBarTitle() -> String {
-        return "Manage Devices"
-    }
-
-    func getLeadLabelText() -> String {
-        return "This is a list of all the devices that are authorized to access your wallet."
     }
 
     //MAKR: - Components
@@ -58,13 +56,13 @@ class OstAuthorizeDeviceListViewController: OstBaseViewController, UITableViewDe
 
         return refreshControl
     }()
+    
+    let titleLabel: OstH1Label = {
+       return OstH1Label(text: "Device Recovery")
+    }()
 
-    let leadLabel: UILabel = {
-        var label = OstUIKit.leadLabel()
-
-        label.translatesAutoresizingMaskIntoConstraints = false
-
-        return label
+    let leadLabel: OstH3Label = {
+       return OstH3Label(text: "This is an authorized device, recovery applies only to cases where a user has no authorized device")
     }()
 
     var progressIndicator: OstProgressIndicator? = nil
@@ -93,17 +91,6 @@ class OstAuthorizeDeviceListViewController: OstBaseViewController, UITableViewDe
         self.getDeviceList(hardRefresh: true)
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        onCellSelected?(["":""])
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-
-        self.onCellSelected = nil
-    }
-
     override func configure() {
         super.configure();
         self.shouldFireIsMovingFromParent = true;
@@ -114,6 +101,7 @@ class OstAuthorizeDeviceListViewController: OstBaseViewController, UITableViewDe
         super.addSubviews()
 
         setupTableView()
+        self.addSubview(titleLabel)
         self.addSubview(leadLabel)
         self.addSubview(deviceTableView)
     }
@@ -126,18 +114,24 @@ class OstAuthorizeDeviceListViewController: OstBaseViewController, UITableViewDe
     }
 
     func registerCells() {
-        self.deviceTableView.register(DeviceTableViewCell.self, forCellReuseIdentifier: DeviceTableViewCell.deviceCellIdentifier)
+        self.deviceTableView.register(OstDeviceTableViewCell.self, forCellReuseIdentifier: OstDeviceTableViewCell.deviceCellIdentifier)
     }
 
     //MARK: - Add Constraints
     override func addLayoutConstraints() {
         super.addLayoutConstraints()
+        addTitleLabelLayoutConstraints()
         addLeadLabelLayoutConstraints()
         addDeviceTableConstraitns()
     }
+    
+    func addTitleLabelLayoutConstraints() {
+        titleLabel.topAlignWithParent(multiplier: 1, constant: 20)
+        titleLabel.applyBlockElementConstraints()
+    }
 
     func addLeadLabelLayoutConstraints() {
-        leadLabel.topAlignWithParent(multiplier: 1, constant: 20)
+        leadLabel.placeBelow(toItem: titleLabel)
         leadLabel.applyBlockElementConstraints()
     }
 
@@ -153,20 +147,27 @@ class OstAuthorizeDeviceListViewController: OstBaseViewController, UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: DeviceTableViewCell = tableView.dequeueReusableCell(withIdentifier: DeviceTableViewCell.deviceCellIdentifier,
-                                                                      for: indexPath) as! DeviceTableViewCell
+        let cell: OstDeviceTableViewCell = tableView.dequeueReusableCell(withIdentifier: OstDeviceTableViewCell.deviceCellIdentifier,
+                                                                         for: indexPath) as! OstDeviceTableViewCell
 
         if tableDataArray.count > indexPath.row {
-            let deviceDetail = tableDataArray[indexPath.row]
-            cell.sendButtonAction = {[weak self] (entity) in
-                self?.actionButtonTapped(entity!)
+            let deviceDetails = tableDataArray[indexPath.row]
+            
+            cell.setDeviceDetails(deviceDetails, forIndex: indexPath.row)
+            cell.onActionPressed = {[weak self] (deviceDetails) in
+                self?.onCellSelected?(deviceDetails)
             }
         }else {
-
+            cell.setDeviceDetails(nil, forIndex: indexPath.row)
+            cell.onActionPressed = nil
         }
         return cell
     }
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
     //MARK: - Scroll View Delegate
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
@@ -247,6 +248,10 @@ class OstAuthorizeDeviceListViewController: OstBaseViewController, UITableViewDe
             return
         }
         isApiCallInProgress = true
+        
+        OstJsonApi.getDeviceList(forUserId: self.userId!,
+                                 params: meta,
+                                 delegate: self)
     }
 
     func onFetchDeviceSuccess(_ apiResponse: [String: Any]?) {
@@ -278,9 +283,14 @@ class OstAuthorizeDeviceListViewController: OstBaseViewController, UITableViewDe
     func actionButtonTapped(_ entity: [String: Any]) {
        self.onCellSelected?(entity)
     }
-
-    func showProgressIndicator(withCode textCode: OstProgressIndicatorTextCode) {
-        progressIndicator = OstProgressIndicator(textCode: textCode)
-        progressIndicator?.show()
+    
+    //MARK: - OstJsonApiDelegate
+    
+    func onOstJsonApiSuccess(data: [String : Any]?) {
+        onFetchDeviceSuccess(data)
+    }
+    
+    func onOstJsonApiError(error: OstError?, errorData: [String : Any]?) {
+        onFetchDeviceSuccess(nil)
     }
 }

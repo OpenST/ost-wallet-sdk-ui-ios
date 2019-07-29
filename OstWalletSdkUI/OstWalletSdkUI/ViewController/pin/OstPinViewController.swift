@@ -14,28 +14,37 @@ import OstWalletSdk;
 
 class OstPinViewController: OstBaseScrollViewController {
     
-    public class func newInstance(pinInputDelegate: OstPinInputDelegate) -> OstPinViewController {
-        let instance = OstPinViewController();
-        setEssentials(instance: instance, pinInputDelegate: pinInputDelegate);
-        return instance;
+    public class func newInstance(pinInputDelegate: OstPinInputDelegate,
+                                  pinVCConfig: OstPinVCConfig) -> OstPinViewController {
+        
+        let instance = OstPinViewController()
+        setEssentials(instance: instance,
+                      pinInputDelegate: pinInputDelegate,
+                      pinVCConfig: pinVCConfig)
+        
+        return instance
     }
     
-    class func setEssentials(instance: OstPinViewController, pinInputDelegate:OstPinInputDelegate) {
-        instance.pinInputDelegate = pinInputDelegate;
+    class func setEssentials(instance: OstPinViewController,
+                             pinInputDelegate:OstPinInputDelegate,
+                             pinVCConfig: OstPinVCConfig) {
+        
+        instance.pinInputDelegate = pinInputDelegate
+        instance.pinVCConfig = pinVCConfig
     }
     
     //MAKR: - Components
     
     let titleLabel: OstH1Label = {
-        return OstH1Label(text: "Create PIN")
+        return OstH1Label(text: "")
     }()
     
     let leadLabel: OstH2Label = {
-        return OstH2Label(text: "Add a 6-digit PIN to secure your wallet.")
+        return OstH2Label(text: "")
     }()
     
     let h3Label: OstH3Label = {
-        return OstH3Label(text: "(PIN helps you recover your wallet if the\n phone is lost or stolen)")
+        return OstH3Label(text: "")
     }()
     
     let pinInput: OstPinInput = {
@@ -57,7 +66,9 @@ class OstPinViewController: OstBaseScrollViewController {
     
     
     internal var pinInputDelegate:OstPinInputDelegate?;
+    private var pinVCConfig: OstPinVCConfig? = nil
     private var contentViewHeightConstraint: NSLayoutConstraint? = nil
+    private var isCallbackTriggered: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -96,15 +107,15 @@ class OstPinViewController: OstBaseScrollViewController {
     }
     
     func getTitleLabelText() -> String {
-        return "Enter Pin"
+        return pinVCConfig?.titleText ?? ""
     }
     
     func getLeadLabelText() -> String {
-        return "Enter you 6-digit PIN to authorize \n your action."
+        return pinVCConfig?.leadLabelText ?? ""
     }
     
     func getH3LabelText() -> String {
-        return "(PIN helps you recover your wallet if the \n phone is lost or stolen)"
+        return pinVCConfig?.infoLabelText ?? ""
     }
     
     override func addSubviews() {
@@ -115,7 +126,9 @@ class OstPinViewController: OstBaseScrollViewController {
         self.addSubview( pinInput );
         self.addSubview(termsAndConditionLabel)
         
-        setupTermsAndConditionLabel()
+        if nil != pinVCConfig?.tcLabelText {
+            setupTermsAndConditionLabel()
+        }
     }
     
     func setupTermsAndConditionLabel() {

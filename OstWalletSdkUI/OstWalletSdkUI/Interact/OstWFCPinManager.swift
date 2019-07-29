@@ -61,7 +61,9 @@ extension OstWorkflowCallbacks {
     
     public func getPin(_ userId: String, delegate: OstPinAcceptDelegate) {
         self.sdkPinAcceptDelegate = delegate;
-        self.getPinViewController = OstCreatePinViewController.newInstance(pinInputDelegate: self);
+        self.getPinViewController = OstPinViewController
+            .newInstance(pinInputDelegate: self,
+                         pinVCConfig: OstPinVCConfig.getConfirmPinVCConfig());
         showGetPinViewController();
     }
     
@@ -69,10 +71,5 @@ extension OstWorkflowCallbacks {
         self.getPinViewController!.showInvalidPin(errorMessage: "Invalid entered pin, Retry again.");
         self.hideLoader();
         self.sdkPinAcceptDelegate = delegate;
-    }
-    
-    @objc func dismissPinViewController() {
-        self.getPinViewController?.removeViewController()
-        self.getPinViewController = nil;
     }
 }

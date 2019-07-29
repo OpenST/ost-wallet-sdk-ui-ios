@@ -62,20 +62,36 @@ import Foundation
                               defaultConfig: OstDefaultTheme.theme["h4"] as! [String: Any])
     }
     
-    /// Get `primary_button` theme config
+    /// Get `c1` theme config
     ///
-    /// - Returns: OstButtonConfig
-    func getPrimaryButtonConfig() -> OstButtonConfig {
-        return  OstButtonConfig(config: themeConfig["primary_button"] as? [String: Any],
-                                defaultConfig: OstDefaultTheme.theme["primary_button"] as! [String: Any])
+    /// - Returns: OstLabelConfig
+    func getC1Config() -> OstLabelConfig {
+        return OstLabelConfig(config: themeConfig["c1"] as? [String: Any],
+                              defaultConfig: OstDefaultTheme.theme["c1"] as! [String: Any])
     }
     
-    /// Get `secondary_button` theme config
+    /// Get `c2` theme config
+    ///
+    /// - Returns: OstLabelConfig
+    func getC2Config() -> OstLabelConfig {
+        return OstLabelConfig(config: themeConfig["c2"] as? [String: Any],
+                              defaultConfig: OstDefaultTheme.theme["c2"] as! [String: Any])
+    }
+    
+    /// Get `b1` theme config
     ///
     /// - Returns: OstButtonConfig
-    func getSecondaryButtonConfig() -> OstButtonConfig {
-        return  OstButtonConfig(config: themeConfig["secondary_button"] as? [String: Any],
-                                defaultConfig: OstDefaultTheme.theme["secondary_button"] as! [String: Any])
+    func getB1Config() -> OstButtonConfig {
+        return  OstButtonConfig(config: themeConfig["b1"] as? [String: Any],
+                                defaultConfig: OstDefaultTheme.theme["b1"] as! [String: Any])
+    }
+    
+    /// Get `b2` theme config
+    ///
+    /// - Returns: OstButtonConfig
+    func getB2Config() -> OstButtonConfig {
+        return  OstButtonConfig(config: themeConfig["b2"] as? [String: Any],
+                                defaultConfig: OstDefaultTheme.theme["b2"] as! [String: Any])
     }
 }
 
@@ -83,22 +99,55 @@ import Foundation
 @objc class OstDefaultTheme: NSObject {
     static let theme: [String: Any] = [
         "h1": ["size": 20,
-               "font": "SFProDisplay-Semibold",
+               "font": "SFProDisplay",
                "color": "#438bad"],
         
         "h2": ["size": 17,
-               "font": "SFProDisplay-Medium",
+               "font": "SFProDisplay",
                "color": "#666666"],
         
         "h3": ["size": 15,
-               "font": "SFProDisplay-Regular",
+               "font": "SFProDisplay",
                "color": "#888888"],
         
         "h4": ["size": 12,
-               "font": "SFProDisplay-Regular",
+               "font": "SFProDisplay",
                "color": "#888888"],
         
-        "primary_button": ["background_color": ""],
-        "secondary_button": ["background_color": ""]
+        "c1": ["size": 14,
+               "font": "SFProDisplay",
+               "color": "#484848"],
+        
+        "c2": ["size": 12,
+               "font": "SFProDisplay",
+               "color": "#6F6F6F"],
+        
+        "b1": [
+            "size": 17,
+            "color": "#ffffff",
+            "background_color": "#438bad",
+            "font_style": "medium"
+        ],
+        
+        "b2": [
+            "size": 17,
+            "color": "#438bad",
+            "background_color": "#ffffff",
+            "font_style": "semi_bold"
+        ],
+        
+        "b3": [
+            "size": 12,
+            "color": "#ffffff",
+            "background_color": "#438bad",
+            "font_style": "medium"
+        ],
+        
+        "b4": [
+            "size": 12,
+            "color": "#438bad",
+            "background_color": "#ffffff",
+            "font_style": "medium"
+        ]
     ]
 }

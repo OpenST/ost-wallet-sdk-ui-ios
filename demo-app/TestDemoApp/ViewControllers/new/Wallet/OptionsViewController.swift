@@ -457,7 +457,10 @@ class OptionsViewController: OstBaseViewController, UITableViewDelegate, UITable
             
         else if  option.type  == .manageDevices {
             if option.isEnable {
-                destinationVC = ManageDeviceViewController()
+                
+                OstWalletSdkUI.initaiteDeviceRecovery(userId: CurrentUserModel.getInstance.ostUserId!,
+                                                      passphrasePrefixDelegate: CurrentUserModel.getInstance)
+                return
             }else {
                 showInfoAlert(title: "Once")
             }
@@ -486,8 +489,7 @@ class OptionsViewController: OstBaseViewController, UITableViewDelegate, UITable
             if option.isEnable {
                 
                 _ = OstWalletSdkUI.abortDeviceRecovery(userId: CurrentUserModel.getInstance.ostUserId!,
-                                                       passphrasePrefixDelegate: CurrentUserModel.getInstance,
-                                                       subscriber: self)
+                                                       passphrasePrefixDelegate: CurrentUserModel.getInstance)
             }else {
                 showInfoAlert(title: "Recovery not initiated, Abort recovery applies only if recovery has been previously initiated.")
             }

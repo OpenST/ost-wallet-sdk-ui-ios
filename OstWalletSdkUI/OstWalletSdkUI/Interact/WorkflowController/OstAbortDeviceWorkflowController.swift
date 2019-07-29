@@ -20,7 +20,10 @@ class OstAbortDeviceRecoveryWorkflowController: OstWorkflowCallbacks {
         
         super.init(userId: userId, passphrasePrefixDelegate: passphrasePrefixDelegate);
         
-        self.getPinViewController = OstCreatePinViewController.newInstance(pinInputDelegate: self);
+        self.getPinViewController = OstPinViewController
+            .newInstance(pinInputDelegate: self,
+                         pinVCConfig: OstPinVCConfig.getConfirmPinVCConfig());
+        
         self.observeViewControllerIsMovingFromParent();
         
         self.getPinViewController!.presentVCWithNavigation()
@@ -35,7 +38,7 @@ class OstAbortDeviceRecoveryWorkflowController: OstWorkflowCallbacks {
     }
     
     @objc override func vcIsMovingFromParent(_ notification: Notification) {
-        if ( notification.object is OstCreatePinViewController ) {
+        if ( notification.object is OstPinViewController ) {
             self.getPinViewController = nil;
             //The workflow has been cancled by user.
             
@@ -85,5 +88,12 @@ class OstAbortDeviceRecoveryWorkflowController: OstWorkflowCallbacks {
         self.getPinViewController = nil;
         self.passphrasePrefixDelegate = nil;
         NotificationCenter.default.removeObserver(self);
+    }
+    
+    override func requestAcknowledged(workflowContext: OstWorkflowContext, ostContextEntity: OstContextEntity) {
+        super.requestAcknowledged(workflowContext: workflowContext, ostContextEntity: ostContextEntity)
+        
+        hideLoader()
+        cleanUp()
     }
 }

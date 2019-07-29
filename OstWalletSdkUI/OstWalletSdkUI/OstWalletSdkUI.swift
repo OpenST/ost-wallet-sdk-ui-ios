@@ -36,6 +36,8 @@ import UIKit
             spendingLimit: spendingLimit,
             expireAfterInSec: expireAfterInSec)
         
+        OstSdkInteract.getInstance.retainWorkflowCallback(callback: workflowController)
+        
         return workflowController.workflowId
     }
     
@@ -43,8 +45,7 @@ import UIKit
     public class func initaiteDeviceRecovery(
         userId: String,
         recoverDeviceAddress: String? = nil,
-        passphrasePrefixDelegate: OstPassphrasePrefixDelegate,
-        subscriber: OstWorkflowUIDelegate? = nil
+        passphrasePrefixDelegate: OstPassphrasePrefixDelegate
         ) -> String {
         
         let workflowController = OstInitiateDeviceRecoveryWorkflowController(
@@ -52,21 +53,23 @@ import UIKit
             passphrasePrefixDelegate: passphrasePrefixDelegate,
             recoverDeviceAddress: recoverDeviceAddress)
         
-        return workflowController.workflowId
+        OstSdkInteract.getInstance.retainWorkflowCallback(callback: workflowController)
         
+        return workflowController.workflowId
     }
     
     @objc
     public class func abortDeviceRecovery(
         userId: String,
-        passphrasePrefixDelegate: OstPassphrasePrefixDelegate,
-        subscriber: OstWorkflowUIDelegate? = nil
+        passphrasePrefixDelegate: OstPassphrasePrefixDelegate
         ) -> String {
         
         let workflowController = OstAbortDeviceRecoveryWorkflowController(
             userId: userId,
             passphrasePrefixDelegate: passphrasePrefixDelegate
         )
+        
+        OstSdkInteract.getInstance.retainWorkflowCallback(callback: workflowController)
         
         return workflowController.workflowId
     }

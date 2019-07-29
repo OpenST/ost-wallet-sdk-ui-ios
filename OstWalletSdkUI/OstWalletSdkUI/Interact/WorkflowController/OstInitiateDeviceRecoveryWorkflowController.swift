@@ -20,7 +20,7 @@ class OstInitiateDeviceRecoveryWorkflowController: OstWorkflowCallbacks {
     init(userId: String,
          passphrasePrefixDelegate: OstPassphrasePrefixDelegate,
          recoverDeviceAddress: String?) {
-       
+        
         self.recoverDeviceAddress = recoverDeviceAddress
         super.init(userId: userId, passphrasePrefixDelegate: passphrasePrefixDelegate);
         
@@ -44,13 +44,13 @@ class OstInitiateDeviceRecoveryWorkflowController: OstWorkflowCallbacks {
     @objc override func vcIsMovingFromParent(_ notification: Notification) {
         
         var isFlowCancelled: Bool = false
-        if (nil == self.deviceListController && notification.object is OstCreatePinViewController)
+        if (nil == self.deviceListController && notification.object is OstPinViewController)
             || (nil != self.deviceListController && notification.object is OstAuthorizeDeviceListViewController) {
-         
+            
             isFlowCancelled = true
         }
         
-       if ( isFlowCancelled ) {
+        if ( isFlowCancelled ) {
             self.flowInterrupted(workflowContext: OstWorkflowContext(workflowType: .initiateDeviceRecovery),
                                  error: OstError("wui_i_wfc_auwc_vmfp_1", .userCanceled)
             );
@@ -58,14 +58,18 @@ class OstInitiateDeviceRecoveryWorkflowController: OstWorkflowCallbacks {
     }
     
     func setGetPinViewController() {
-        self.getPinViewController = OstCreatePinViewController.newInstance(pinInputDelegate: self);
+        self.getPinViewController = OstPinViewController
+            .newInstance(pinInputDelegate: self,
+                         pinVCConfig: OstPinVCConfig.getRecoveryAccessPinVCConfig());
     }
     
     func openAuthorizeDeviceListController() {
-        self.deviceListController = OstAuthorizeDeviceListViewController.newInstance(callBack: {[weak self] (device) in
-            //self?.recoverDeviceAddress = ""
-            self?.openGetPinViewController()
-        })
+        self.deviceListController = OstAuthorizeDeviceListViewController
+            .newInstance(userId: self.userId,
+                         callBack: {[weak self] (device) in
+                            self?.recoverDeviceAddress = (device?["address"] as? String) ?? ""
+                            self?.openGetPinViewController()
+            })
 
         self.deviceListController!.presentVCWithNavigation()
     }
@@ -73,7 +77,7 @@ class OstInitiateDeviceRecoveryWorkflowController: OstWorkflowCallbacks {
     func openGetPinViewController() {
         setGetPinViewController()
         if nil == deviceListController {
-             self.getPinViewController!.presentVCWithNavigation()
+            self.getPinViewController!.presentVCWithNavigation()
         }else {
             self.getPinViewController!.pushViewControllerOn(self.deviceListController!)
         }
@@ -82,7 +86,7 @@ class OstInitiateDeviceRecoveryWorkflowController: OstWorkflowCallbacks {
     //MARK: - OstPassphrasePrefixAcceptDelegate
     fileprivate var userPassphrasePrefix:String?
     override func setPassphrase(ostUserId: String, passphrase: String) {
-   
+        
         if ( self.userId.compare(ostUserId) != .orderedSame ) {
             self.flowInterrupted(workflowContext: OstWorkflowContext(workflowType: .initiateDeviceRecovery),
                                  error: OstError("wui_i_wfc_auwc_gp_1", .pinValidationFailed)
@@ -99,22 +103,25 @@ class OstInitiateDeviceRecoveryWorkflowController: OstWorkflowCallbacks {
         showLoader(progressText: .initiateDeviceRecovery);
     }
     
-//    //MARK: - OstPinAcceptDelegate
-//    override func pinProvided(pin: String) {
-//        self.userPin = pin;
-//        showLoader(progressText: .initiateDeviceRecovery);
-//        passphrasePrefixDelegate!.getPassphrase(ostUserId: self.userId,
-//                                                passphrasePrefixAcceptDelegate: self);
-//    }
-    
     override func cleanUp() {
         super.cleanUp();
         if ( nil != self.deviceListController ) {
-            self.deviceListController?.removeViewController()
+            self.deviceListController?.removeViewController(flowEnded: true)
         }
         self.getPinViewController = nil
         self.passphrasePrefixDelegate = nil
         self.deviceListController = nil
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    override func requestAcknowledged(workflowContext: OstWorkflowContext, ostContextEntity: OstContextEntity) {
+        super.requestAcknowledged(workflowContext: workflowContext, ostContextEntity: ostContextEntity)
+        
+        hideLoader()
+        cleanUp()
+    }
+    
+    @objc public override func cleanUpPinViewController() {
+        self.sdkPinAcceptDelegate = nil;
     }
 }

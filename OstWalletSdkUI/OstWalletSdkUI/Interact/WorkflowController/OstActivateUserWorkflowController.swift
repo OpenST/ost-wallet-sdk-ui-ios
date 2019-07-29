@@ -18,8 +18,8 @@ class OstActivateUserWorkflowController: OstWorkflowCallbacks {
     let expireAfterInSec:TimeInterval
     
     /// Mark - View Controllers.
-    var createPinViewController: OstCreatePinViewController? = nil
-    var confirmPinViewController: OstConfirmNewPinViewController?;
+    var createPinViewController: OstPinViewController? = nil
+    var confirmPinViewController: OstPinViewController?;
     
     init(userId: String,
          passphrasePrefixDelegate: OstPassphrasePrefixDelegate,
@@ -42,9 +42,9 @@ class OstActivateUserWorkflowController: OstWorkflowCallbacks {
     }
     
     @objc override func vcIsMovingFromParent(_ notification: Notification) {
-        if ( notification.object is OstConfirmNewPinViewController ) {
+        if (nil != self.confirmPinViewController && notification.object is OstPinViewController ) {
             self.confirmPinViewController = nil;
-        } else if ( notification.object is OstCreatePinViewController ) {
+        } else if ( notification.object is OstPinViewController ) {
             self.createPinViewController = nil;
             //The workflow has been cancled by user.
             
@@ -92,26 +92,27 @@ class OstActivateUserWorkflowController: OstWorkflowCallbacks {
     
     func showCreatePinViewController() {
         DispatchQueue.main.async {
-            self.createPinViewController = OstCreatePinViewController.newInstance(pinInputDelegate: self)
+            self.createPinViewController = OstPinViewController
+                .newInstance(pinInputDelegate: self,
+                             pinVCConfig: OstPinVCConfig.getCreatePinVCConfig())
+            
             self.createPinViewController!.presentVCWithNavigation()
         }
     }
     func showConfirmPinViewController() {
         DispatchQueue.main.async {
-            self.confirmPinViewController = OstConfirmNewPinViewController.newInstance(pinInputDelegate: self);
+            self.confirmPinViewController = OstPinViewController
+                .newInstance(pinInputDelegate: self,
+                             pinVCConfig: OstPinVCConfig.getConfirmPinVCConfig());
+            
             self.confirmPinViewController?.pushViewControllerOn(self.createPinViewController!);
         }
-    }
-    
-    override func dismissPinViewController() {
-        self.createPinViewController?.removeViewController()
-        self.createPinViewController = nil
     }
     
     override func cleanUp() {
         super.cleanUp();
         if ( nil != self.createPinViewController ) {
-           dismissPinViewController()
+           self.createPinViewController?.removeViewController()
         }
         self.createPinViewController = nil;
         self.confirmPinViewController = nil;

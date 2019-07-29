@@ -46,7 +46,7 @@ import OstWalletSdk
     var userPin:String? = nil;
     var sdkPinAcceptDelegate:OstPinAcceptDelegate? = nil;
     var passphrasePrefixDelegate: OstPassphrasePrefixDelegate?
-    var getPinViewController: OstCreatePinViewController? = nil
+    var getPinViewController: OstPinViewController? = nil
 
     /// Mark - Workflow callback vars.
     public let workflowId: String
@@ -120,7 +120,7 @@ import OstWalletSdk
 
         let onComplete: ((Bool) -> Void) = {[weak self] (isComplete) in
             self?.hideLoader();
-            self?.dismissPinViewController();
+            self?.cleanUpPinViewController();
             self?.cleanUp();
         }
         
@@ -143,7 +143,7 @@ import OstWalletSdk
         
         let onComplete: ((Bool) -> Void) = {[weak self] (isComplete) in
             self?.hideLoader();
-            self?.dismissPinViewController();
+            self?.cleanUpPinViewController();
             self?.cleanUp();
         }
         
