@@ -64,22 +64,27 @@ class OstInitiateDeviceRecoveryWorkflowController: OstWorkflowCallbacks {
     }
     
     func openAuthorizeDeviceListController() {
-        self.deviceListController = OstAuthorizeDeviceListViewController
-            .newInstance(userId: self.userId,
-                         callBack: {[weak self] (device) in
-                            self?.recoverDeviceAddress = (device?["address"] as? String) ?? ""
-                            self?.openGetPinViewController()
-            })
-
-        self.deviceListController!.presentVCWithNavigation()
+        
+        DispatchQueue.main.async {
+            self.deviceListController = OstAuthorizeDeviceListViewController
+                .newInstance(userId: self.userId,
+                             callBack: {[weak self] (device) in
+                                self?.recoverDeviceAddress = (device?["address"] as? String) ?? ""
+                                self?.openGetPinViewController()
+                })
+            
+            self.deviceListController!.presentVCWithNavigation()
+        }
     }
     
     func openGetPinViewController() {
-        setGetPinViewController()
-        if nil == deviceListController {
-            self.getPinViewController!.presentVCWithNavigation()
-        }else {
-            self.getPinViewController!.pushViewControllerOn(self.deviceListController!)
+        DispatchQueue.main.async {
+            self.setGetPinViewController()
+            if nil == self.deviceListController {
+                self.getPinViewController!.presentVCWithNavigation()
+            }else {
+                self.getPinViewController!.pushViewControllerOn(self.deviceListController!)
+            }
         }
     }
     
