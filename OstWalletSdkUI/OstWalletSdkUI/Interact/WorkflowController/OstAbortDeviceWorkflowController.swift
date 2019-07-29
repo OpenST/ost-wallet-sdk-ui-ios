@@ -22,7 +22,7 @@ class OstAbortDeviceRecoveryWorkflowController: OstWorkflowCallbacks {
         
         self.getPinViewController = OstPinViewController
             .newInstance(pinInputDelegate: self,
-                         pinVCConfig: OstPinVCConfig.getConfirmPinVCConfig());
+                         pinVCConfig: OstPinVCConfig.getAbortRecoveryPinVCConfig());
         
         self.observeViewControllerIsMovingFromParent();
         
@@ -67,14 +67,6 @@ class OstAbortDeviceRecoveryWorkflowController: OstWorkflowCallbacks {
         self.userPin = nil;
         
     }
-    
-    /// Mark - OstPinAcceptDelegate
-//    override func pinProvided(pin: String) {
-//        self.userPin = pin;
-//        showLoader(progressText: .stopDeviceRecovery);
-//        passphrasePrefixDelegate!.getPassphrase(ostUserId: self.userId,
-//                                                passphrasePrefixAcceptDelegate: self);
-//    }
     
     public override func cleanUpPinViewController() {
         self.sdkPinAcceptDelegate = nil;

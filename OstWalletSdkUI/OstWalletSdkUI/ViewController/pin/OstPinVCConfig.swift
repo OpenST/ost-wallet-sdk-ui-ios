@@ -57,4 +57,12 @@ import Foundation
                               infoLabelText: nil,
                               tcLabelText: nil)
     }
+    
+    class func getAbortRecoveryPinVCConfig() -> OstPinVCConfig {
+        return OstPinVCConfig(titleText: "Recover access to OS Tokens",
+                              leadLabelText: "Enter your 6-digit PIN to access to your OS tokens",
+                              infoLabelText: nil,
+                              tcLabelText: nil)
+    }
+
 }
