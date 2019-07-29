@@ -19,14 +19,15 @@ class OstAbortDeviceRecoveryWorkflowController: OstWorkflowCallbacks {
                   passphrasePrefixDelegate:OstPassphrasePrefixDelegate) {
         
         super.init(userId: userId, passphrasePrefixDelegate: passphrasePrefixDelegate);
-        
-        self.getPinViewController = OstPinViewController
-            .newInstance(pinInputDelegate: self,
-                         pinVCConfig: OstPinVCConfig.getAbortRecoveryPinVCConfig());
-        
+    
         self.observeViewControllerIsMovingFromParent();
-        
-        self.getPinViewController!.presentVCWithNavigation()
+    
+        DispatchQueue.main.async {
+            self.getPinViewController = OstPinViewController
+                .newInstance(pinInputDelegate: self,
+                             pinVCConfig: OstPinVCConfig.getAbortRecoveryPinVCConfig());
+            self.getPinViewController!.presentVCWithNavigation()
+        }
     }
     
     deinit {
