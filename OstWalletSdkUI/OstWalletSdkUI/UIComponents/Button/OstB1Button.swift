@@ -13,6 +13,7 @@ import Foundation
 
 class OstB1Button: OstBaseButton {
     
+    /// Set theme config for button
     override func setThemeConfig() {
         self.buttonConfig = OstTheme.getInstance().getB1Config()
         

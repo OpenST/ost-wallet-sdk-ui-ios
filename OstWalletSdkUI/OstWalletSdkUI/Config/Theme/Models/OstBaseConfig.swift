@@ -18,6 +18,11 @@ import Foundation
     let colorHex: String
     let fontStyle: String
     
+    /// Initialize
+    ///
+    /// - Parameters:
+    ///   - config: Config
+    ///   - defaultConfig: Fallback config
     init(config: [String: Any]?,
          defaultConfig: [String: Any]) {
         
@@ -27,11 +32,18 @@ import Foundation
         self.fontStyle = (config?["font_style"] as? String) ?? (defaultConfig["font_style"] as! String)
     }
     
+    /// Get font for provided config
+    ///
+    /// - Parameter weight: Font weight
+    /// - Returns: Font
     func getFont(weight: UIFont.Weight? = nil) -> UIFont {
         let fontWeight = (nil != weight) ? weight! : UIFont.getFontWeight(fontStyle)
         return UIFont(name: self.fontName, size: CGFloat(truncating: self.size)) ?? UIFont.systemFont(ofSize: CGFloat(truncating: self.size), weight: fontWeight)
     }
     
+    /// Get color from hex color code
+    ///
+    /// - Returns: Color
     func getColor() -> UIColor {
         return UIColor.color(hex: colorHex)
     }

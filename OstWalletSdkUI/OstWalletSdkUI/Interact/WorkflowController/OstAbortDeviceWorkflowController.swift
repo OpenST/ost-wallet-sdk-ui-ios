@@ -11,7 +11,7 @@
 import Foundation
 import OstWalletSdk
 
-class OstAbortDeviceRecoveryWorkflowController: OstWorkflowCallbacks {
+class OstAbortDeviceRecoveryWorkflowController: OstBaseWorkflowController {
     
     /// Mark - View Controllers.
     
@@ -19,19 +19,22 @@ class OstAbortDeviceRecoveryWorkflowController: OstWorkflowCallbacks {
                   passphrasePrefixDelegate:OstPassphrasePrefixDelegate) {
         
         super.init(userId: userId, passphrasePrefixDelegate: passphrasePrefixDelegate);
+    }
     
-        self.observeViewControllerIsMovingFromParent();
+    deinit {
+        print("OstAbortDeviceRecoveryWorkflowController :: I am deinit");
+    }
     
+    override func perform() {
+        
+        self.observeViewControllerIsMovingFromParent()
+        
         DispatchQueue.main.async {
             self.getPinViewController = OstPinViewController
                 .newInstance(pinInputDelegate: self,
                              pinVCConfig: OstPinVCConfig.getAbortRecoveryPinVCConfig());
             self.getPinViewController!.presentVCWithNavigation()
         }
-    }
-    
-    deinit {
-        print("OstAbortDeviceRecoveryWorkflowController :: I am deinit");
     }
     
     @objc override func getWorkflowContext() -> OstWorkflowContext {

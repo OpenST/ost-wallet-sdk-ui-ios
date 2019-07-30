@@ -64,7 +64,6 @@ class OstPinViewController: OstBaseScrollViewController {
         return label
     }()
     
-    
     internal var pinInputDelegate:OstPinInputDelegate?;
     private var pinVCConfig: OstPinVCConfig? = nil
     private var contentViewHeightConstraint: NSLayoutConstraint? = nil

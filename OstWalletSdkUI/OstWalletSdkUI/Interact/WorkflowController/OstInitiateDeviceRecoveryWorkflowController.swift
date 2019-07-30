@@ -11,7 +11,7 @@
 import UIKit
 import OstWalletSdk
 
-class OstInitiateDeviceRecoveryWorkflowController: OstWorkflowCallbacks {
+class OstInitiateDeviceRecoveryWorkflowController: OstBaseWorkflowController {
     
     var recoverDeviceAddress: String?
     var deviceListController: OstAuthorizeDeviceListViewController? = nil
@@ -23,6 +23,13 @@ class OstInitiateDeviceRecoveryWorkflowController: OstWorkflowCallbacks {
         
         self.recoverDeviceAddress = recoverDeviceAddress
         super.init(userId: userId, passphrasePrefixDelegate: passphrasePrefixDelegate);
+    }
+    
+    deinit {
+        print("OstInitiateDeviceRecoveryWorkflowController :: I am deinit ");
+    }
+    
+    override func perform() {
         
         self.observeViewControllerIsMovingFromParent()
         
@@ -31,10 +38,6 @@ class OstInitiateDeviceRecoveryWorkflowController: OstWorkflowCallbacks {
         } else {
             self.openGetPinViewController()
         }
-    }
-    
-    deinit {
-        print("OstInitiateDeviceRecoveryWorkflowController :: I am deinit ");
     }
     
     @objc override func getWorkflowContext() -> OstWorkflowContext {

@@ -15,6 +15,9 @@ import Foundation
     private static var instance: OstContent? = nil
     var contentConfig: [String: Any] = [:]
     
+    /// Get Instance for OstContent class
+    ///
+    /// - Returns: OstContent
     class func getInstance() -> OstContent {
         var instance = OstContent.instance
         if nil == instance {
@@ -23,12 +26,18 @@ import Foundation
         return instance!
     }
     
+    /// Initialize
+    ///
+    /// - Parameter contentConfig: Config
     init(contentConfig: [String: Any]) {
         self.contentConfig = contentConfig
         super.init()
         OstContent.instance = self
     }
     
+    /// Get navigation bar logo
+    ///
+    /// - Returns: Image
     func getNavBarLogo() -> UIImage {
         if let navLogoDict = contentConfig["image_nav_bar_logo"] as? [String: Any],
             let imageName = navLogoDict["name"] as? String {
@@ -41,10 +50,17 @@ import Foundation
         return getImageFromFramework(imageName: imageName)
     }
     
+    /// get image from framework
+    ///
+    /// - Parameter imageName: Image name
+    /// - Returns: Image
     func getImageFromFramework(imageName: String) -> UIImage {
         return UIImage(named: imageName, in: Bundle(for: type(of: self)), compatibleWith: nil)!
     }
     
+    /// Get url for terms and conditions
+    ///
+    /// - Returns: <#return value description#>
     func getTCURL() -> String {
         if let urlTC = contentConfig["url_terms_and_condition"] as? [String: Any],
             let url = urlTC["url"] as? String {

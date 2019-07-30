@@ -9,14 +9,7 @@
 import UIKit
 
 class OstBaseTableViewCell: UITableViewCell {
-    
-//    let containerView: UIView = {
-//        let view = UIView()
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        
-//        return view
-//    }()
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -38,6 +31,7 @@ class OstBaseTableViewCell: UITableViewCell {
         applyConstraints()
         
         setValuesForComponents()
+        
         self.selectionStyle = .none
     }
     
@@ -45,18 +39,25 @@ class OstBaseTableViewCell: UITableViewCell {
         super.layoutSubviews()
     }
     
+    /// Add view to table view cells content view
+    ///
+    /// - Parameter view: View
     func addToContentView(_ view: UIView) {
         self.contentView.addSubview(view)
     }
 
     //MARK: - Functions to override
     
+    /// Set variables
     func setVariables() {}
     
+    /// Craete views
     func createViews() {}
 
+    /// Apply constrains
     func applyConstraints() {}
     
+    /// Set values for components
     func setValuesForComponents() {}
     
     func beingDisplay() {}

@@ -36,7 +36,15 @@ class OstNavigation {
         self.navLogo = OstContent.getInstance().getNavBarLogo()
     }
     
-    func apply(_ navController: UINavigationController, target: AnyObject? = nil, action: Selector? = nil) {
+    /// Apply style to navigation bar
+    ///
+    /// - Parameters:
+    ///   - navController: UINavigationController
+    ///   - target: Target for back button pressed.
+    ///   - action: Action for back button pressed.
+    func apply(_ navController: UINavigationController,
+               target: AnyObject? = nil,
+               action: Selector? = nil) {
         
         setBackBarButtonImage(navController: navController)
         
@@ -44,11 +52,12 @@ class OstNavigation {
         navController.navigationBar.barTintColor = barTintColor
         navController.navigationBar.titleTextAttributes = [.foregroundColor: barTextColor,
                                                            .font: UIFont.systemFont(ofSize: fontSize)]
+        
         if nil != backBarButtonImage && nil != target  &&  nil != action {
             navController.navigationBar.backIndicatorImage = backBarButtonImage
             navController.navigationBar.backIndicatorTransitionMaskImage = backBarButtonImage
             
-            target!.navigationItem.leftBarButtonItems = createWithImage(image: backBarButtonImage!, target: target, action: action!)
+            target!.navigationItem.leftBarButtonItems = getNavigationBarItems(image: backBarButtonImage!, target: target, action: action!)
         }
         
         let shadowImage = UIImage()
@@ -62,6 +71,9 @@ class OstNavigation {
         navController.viewControllers.last?.navigationItem.titleView = imageView
     }
     
+    /// Set back button for navigation bar
+    ///
+    /// - Parameter navController: UINavigationController
     func setBackBarButtonImage(navController: UINavigationController) {
         let navViewControllers = navController.viewControllers
         if navViewControllers.last === navViewControllers.first {
@@ -71,7 +83,17 @@ class OstNavigation {
         }
     }
     
-    func createWithImage(image: UIImage, target: AnyObject?, action: Selector) -> [UIBarButtonItem] {
+    /// Get navigation bar items
+    ///
+    /// - Parameters:
+    ///   - image: Image for bar item
+    ///   - target: Target for bar item
+    ///   - action: Action for bar item
+    /// - Returns: Array for bar items
+    func getNavigationBarItems(image: UIImage,
+                               target: AnyObject?,
+                               action: Selector) -> [UIBarButtonItem] {
+        
         // recommended maximum image height 22 points (i.e. 22 @1x, 44 @2x, 66 @3x)
         let negativeSpacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.fixedSpace, target: nil, action: nil)
         negativeSpacer.width = -8

@@ -12,7 +12,7 @@ import Foundation
 import UIKit
 import OstWalletSdk
 
-class OstActivateUserWorkflowController: OstWorkflowCallbacks {
+class OstActivateUserWorkflowController: OstBaseWorkflowController {
 
     let spendingLimit: String
     let expireAfterInSec:TimeInterval
@@ -29,12 +29,17 @@ class OstActivateUserWorkflowController: OstWorkflowCallbacks {
         self.spendingLimit = spendingLimit
         self.expireAfterInSec = expireAfterInSec
         super.init(userId: userId, passphrasePrefixDelegate: passphrasePrefixDelegate)
+    }
+    
+    deinit {
+        print("OstActivateUserWorkflowController :: I am deinit ");
+    }
+    
+    override func perform() {
+        
         self.observeViewControllerIsMovingFromParent()
         
         self.showCreatePinViewController()
-    }
-    deinit {
-        print("OstActivateUserWorkflowController :: I am deinit ");
     }
     
     @objc override func getWorkflowContext() -> OstWorkflowContext {

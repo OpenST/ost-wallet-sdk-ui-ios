@@ -11,10 +11,9 @@
 
 import Foundation
 
-class OstC2Label: OstLabel1 {
+@objc class OstBaseWorkflowController: OstWorkflowCallbacks {
     
-    /// Set theme config for button
-    override func setThemeConfig() {
-        self.labelConfig = OstTheme.getInstance().getC2Config()
+    func perform() {
+        
     }
 }

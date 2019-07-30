@@ -13,7 +13,10 @@ import Foundation
 
 @objc class OstLabel1: UILabel {
    
+    //Label config
     var labelConfig: OstLabelConfig? = nil
+    
+    //Set label text
     var labelText: String {
         didSet {
             self.text = labelText
@@ -23,6 +26,9 @@ import Foundation
     
     
     //MARK: - Initialize
+    /// Initialize
+    ///
+    /// - Parameter text: String
     init(text: String = "") {
         self.labelText = text
         
@@ -30,6 +36,9 @@ import Foundation
         applyTheme()
     }
     
+    /// Initialize
+    ///
+    /// - Parameter attributedText: Attributed string for label
     init(attributedText: NSAttributedString) {
         self.labelText = ""
         self.labelAttributedText = attributedText
@@ -38,6 +47,9 @@ import Foundation
         applyTheme()
     }
     
+    /// Initialize
+    ///
+    /// - Parameter frame: Frame
     override init(frame: CGRect) {
         self.labelText = ""
         
@@ -45,6 +57,9 @@ import Foundation
         applyTheme()
     }
     
+    /// Initialize
+    ///
+    /// - Parameter aDecoder: NSCoder
     required init?(coder aDecoder: NSCoder) {
         self.labelText = ""
         
@@ -52,6 +67,7 @@ import Foundation
         applyTheme()
     }
     
+    /// Apply theme for label
     func applyTheme() {
         self.setThemeConfig()
         
@@ -69,12 +85,10 @@ import Foundation
         }
     }
     
+    /// Set theme config for button
     func setThemeConfig() {
         fatalError("setThemeConfig did not override")
     }
     
-    func getFont() -> UIFont {
-        fatalError("getFont did not override")
-    }
 }
 

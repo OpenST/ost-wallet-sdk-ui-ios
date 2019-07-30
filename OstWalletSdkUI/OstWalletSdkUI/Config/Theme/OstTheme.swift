@@ -15,6 +15,9 @@ import Foundation
     private static var instance: OstTheme? = nil
     var themeConfig: [String: Any] = [:]
     
+    /// Get instance for OstTheme
+    ///
+    /// - Returns: OstTheme
     class func getInstance() -> OstTheme {
         var instance = OstTheme.instance
         if nil == instance {
@@ -23,6 +26,9 @@ import Foundation
         return instance!
     }
     
+    /// Initialize
+    ///
+    /// - Parameter themeConfig: Theme config
     init(themeConfig: [String: Any]) {
         self.themeConfig = themeConfig
         super.init()

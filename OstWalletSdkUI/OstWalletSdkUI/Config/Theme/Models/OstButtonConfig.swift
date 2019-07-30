@@ -14,6 +14,11 @@ import Foundation
 @objc class OstButtonConfig: OstBaseConfig {
     private let backgroundColor: UIColor
     
+    /// Initialize
+    ///
+    /// - Parameters:
+    ///   - config: Config
+    ///   - defaultConfig: Fallback config
     override init(config: [String: Any]?,
                   defaultConfig: [String: Any]) {
 

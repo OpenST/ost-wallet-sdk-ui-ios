@@ -255,6 +255,9 @@ class OstAuthorizeDeviceListViewController: OstBaseViewController, UITableViewDe
 
     func onFetchDeviceSuccess(_ apiResponse: [String: Any]?) {
         isApiCallInProgress = false
+        
+        let currentUser = OstWalletSdk.getUser(self.userId!)
+        let currentDevice = currentUser!.getCurrentDevice()
 
         meta = apiResponse!["meta"] as? [String: Any]
         guard let resultType = apiResponse!["result_type"] as? String else {return}
@@ -265,9 +268,11 @@ class OstAuthorizeDeviceListViewController: OstBaseViewController, UITableViewDe
             if (device["status"] as? String ?? "").caseInsensitiveCompare("AUTHORIZED") == .orderedSame {
                 if let deviceAddress = device["address"] as? String,
                     consumedDevices[deviceAddress] == nil {
-
-                    newDevices.append(device)
-                    consumedDevices[deviceAddress] = device
+                    
+                    if currentDevice!.address!.caseInsensitiveCompare(deviceAddress) != .orderedSame {
+                        newDevices.append(device)
+                        consumedDevices[deviceAddress] = device
+                    }
                 }
             }
         }

@@ -12,6 +12,8 @@
 import Foundation
 
 @objc class OstH2Label: OstLabel1 {
+    
+    /// Set theme config for button
     override func setThemeConfig() {
         self.labelConfig = OstTheme.getInstance().getH2Config()
     }

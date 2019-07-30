@@ -31,12 +31,19 @@ class OstBaseButton: UIButton {
     
     public let buttonTitleText: String
     
+    
+    /// Initialize
+    ///
+    /// - Parameter frame: frame
     override init(frame: CGRect) {
         self.buttonTitleText = ""
         
         super.init(frame: .zero)
     }
     
+    /// Initialize
+    ///
+    /// - Parameter title: String
     init(title: String) {
         self.buttonTitleText = title
         super.init(frame: .zero)
@@ -44,18 +51,36 @@ class OstBaseButton: UIButton {
         self.apply(self)
     }
     
+    /// Initialize
+    ///
+    /// - Parameter aDecoder: NSCoder
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /// Set background image for button state
+    ///
+    /// - Parameters:
+    ///   - image: Image to set
+    ///   - state: Button state
     func setBackgroundImage(image:UIImage, state:UIButton.State) {
         self.backgroundImages[state.rawValue] = image;
     }
     
+    /// Set title color for button
+    ///
+    /// - Parameters:
+    ///   - color: Color to set
+    ///   - state: Button state
     func setTitleColor(color: UIColor, state:UIButton.State) {
         self.titleColors[state.rawValue] = color;
     }
     
+    /// Set background image for button
+    ///
+    /// - Parameters:
+    ///   - button: Button object
+    ///   - state: Button state
     func applyBackgroundImage(button: UIButton, state:UIButton.State) {
         let img = backgroundImages[state.rawValue];
         if ( nil != img ) {
@@ -63,6 +88,11 @@ class OstBaseButton: UIButton {
         }
     }
     
+    /// Apply title color to button title
+    ///
+    /// - Parameters:
+    ///   - button: Button object
+    ///   - state: Button state
     func applyTitleColor(button: UIButton, state:UIButton.State) {
         let color = titleColors[state.rawValue];
         if ( nil != color ) {
@@ -70,6 +100,9 @@ class OstBaseButton: UIButton {
         }
     }
     
+    /// Apply config to button
+    ///
+    /// - Parameter button: Button
     func apply(_ button:UIButton) {
         
         setThemeConfig()
@@ -108,12 +141,14 @@ class OstBaseButton: UIButton {
             button.clipsToBounds = true;
         }
         
+        //Set border with
         if ( borderWidth > 0 ) {
             button.layer.borderWidth = borderWidth;
             button.layer.borderColor = borderColor;
         }
     }
     
+    /// Set theme config for button
     func setThemeConfig() {
         fatalError("setThemeConfig did not override")
     }

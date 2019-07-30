@@ -12,12 +12,19 @@ import UIKit
 
 @objc public class OstWalletSdkUI: NSObject {
     
+
+    /// Set theme config for OstWalletUI
+    ///
+    /// - Parameter config: Theme config
     @objc
     public class func setThemeConfig(_ config: [String: Any]) {
         _ = OstTheme(themeConfig: config)
     }
     
     @objc
+    /// Set content config for OstWalletUI
+    ///
+    /// - Parameter config: Content config
     public class func setContentConfig(_ config: [String: Any]) {
         _ = OstContent(contentConfig: config)
     }
@@ -37,7 +44,7 @@ import UIKit
             expireAfterInSec: expireAfterInSec)
         
         OstSdkInteract.getInstance.retainWorkflowCallback(callback: workflowController)
-        
+        workflowController.perform()
         return workflowController.workflowId
     }
     
@@ -54,7 +61,7 @@ import UIKit
             recoverDeviceAddress: recoverDeviceAddress)
         
         OstSdkInteract.getInstance.retainWorkflowCallback(callback: workflowController)
-        
+        workflowController.perform()
         return workflowController.workflowId
     }
     
@@ -70,7 +77,7 @@ import UIKit
         )
         
         OstSdkInteract.getInstance.retainWorkflowCallback(callback: workflowController)
-        
+        workflowController.perform()
         return workflowController.workflowId
     }
     
