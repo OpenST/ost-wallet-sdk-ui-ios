@@ -78,7 +78,7 @@ class OstDeviceTableViewCell: OstBaseTableViewCell {
     }()
     
     let actionButton: OstB1Button = {
-        let view = OstB1Button(title: "Start Recovery")
+        let view = OstB1Button(title: "")
         
         return view
     }()
@@ -106,6 +106,7 @@ class OstDeviceTableViewCell: OstBaseTableViewCell {
                                        in: Bundle(for: type(of: self)),
                                        compatibleWith: nil)!
         
+        self.actionButton.setTitle("Start Recovery", for: .normal)
         self.actionButton.addTarget(self, action: #selector(actionButtonTapped(_ :)), for: .touchUpInside)
     }
     

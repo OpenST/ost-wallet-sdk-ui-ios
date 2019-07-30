@@ -47,6 +47,7 @@ class OstDeviceListViewController: OstBaseViewController, UITableViewDelegate, U
         return OstH3Label(text: "")
     }()
     
+    var paginatingCell: OstPaginationLoaderTableViewCell? = nil
     var progressIndicator: OstProgressIndicator? = nil
     
     //MARK: - Variables
@@ -73,8 +74,16 @@ class OstDeviceListViewController: OstBaseViewController, UITableViewDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.getDeviceList(hardRefresh: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if isApiCallInProgress {
+            progressIndicator = OstProgressIndicator(textCode: .fetchingDeviceList)
+            progressIndicator?.show()
+        }
     }
     
     //MARK: - Add Subview
@@ -92,10 +101,24 @@ class OstDeviceListViewController: OstBaseViewController, UITableViewDelegate, U
         deviceTableView.dataSource = self
         
         registerCells()
+        setupRefreshControl()
     }
     
     func registerCells() {
-        self.deviceTableView.register(OstDeviceTableViewCell.self, forCellReuseIdentifier: OstDeviceTableViewCell.deviceCellIdentifier)
+        self.deviceTableView.register(OstDeviceTableViewCell.self,
+                                      forCellReuseIdentifier: OstDeviceTableViewCell.deviceCellIdentifier)
+        
+        self.deviceTableView.register(OstPaginationLoaderTableViewCell.self,
+                                      forCellReuseIdentifier: OstPaginationLoaderTableViewCell.paginationCellIdentifier)
+    }
+    
+    func setupRefreshControl() {
+        
+        if #available(iOS 10.0, *) {
+            self.deviceTableView.refreshControl = self.refreshControl
+        } else {
+            self.deviceTableView.addSubview(self.refreshControl)
+        }
     }
     
     //MARK: - Add Constraints
@@ -123,29 +146,77 @@ class OstDeviceListViewController: OstBaseViewController, UITableViewDelegate, U
     }
     
     //MARK: - Table View Delegate
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableDataArray.count
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: OstDeviceTableViewCell = tableView.dequeueReusableCell(withIdentifier: OstDeviceTableViewCell.deviceCellIdentifier,
-                                                                         for: indexPath) as! OstDeviceTableViewCell
-        
-        if tableDataArray.count > indexPath.row {
-            let deviceDetails = tableDataArray[indexPath.row]
-            
-            cell.setDeviceDetails(deviceDetails, forIndex: indexPath.row)
-            cell.onActionPressed = {[weak self] (deviceDetails) in
-                self?.onCellSelected?(deviceDetails)
-            }
-        }else {
-            cell.setDeviceDetails(nil, forIndex: indexPath.row)
-            cell.onActionPressed = nil
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return self.tableDataArray.count
+        case 1:
+            return self.paginatingViewCount
+        default:
+            return 0
         }
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell: OstBaseTableViewCell
+        
+        switch indexPath.section {
+        case 0:
+            let deviceTableViewCell = getTableViewCell(tableView, forIndexPath: indexPath) as! OstDeviceTableViewCell
+            if tableDataArray.count > indexPath.row {
+                let deviceDetails = tableDataArray[indexPath.row]
+                
+                deviceTableViewCell.setDeviceDetails(deviceDetails, forIndex: indexPath.row)
+                deviceTableViewCell.onActionPressed = {[weak self] (deviceDetails) in
+                    self?.onCellSelected?(deviceDetails)
+                }
+            }else {
+                deviceTableViewCell.setDeviceDetails(nil, forIndex: indexPath.row)
+                deviceTableViewCell.onActionPressed = nil
+            }
+            
+            cell = deviceTableViewCell
+            
+        case 1:
+            let pCell: OstPaginationLoaderTableViewCell
+            if nil == self.paginatingCell {
+                pCell = tableView.dequeueReusableCell(withIdentifier: OstPaginationLoaderTableViewCell.paginationCellIdentifier,
+                                                      for: indexPath) as! OstPaginationLoaderTableViewCell
+                self.paginatingCell = pCell
+            }else {
+                pCell = self.paginatingCell!
+            }
+            
+            if isNextPageAvailable() || (self.isNewDataAvailable || self.shouldReloadData) {
+                pCell.startAnimating()
+            }else {
+                pCell.stopAnimating()
+            }
+            
+            cell = pCell
+        default:
+            cell = OstBaseTableViewCell()
+        }
+        
         return cell
     }
     
+    func getTableViewCell(_ tableView: UITableView, forIndexPath indexPath: IndexPath) -> UITableViewCell {
+        return tableView.dequeueReusableCell(withIdentifier: OstDeviceTableViewCell.deviceCellIdentifier,
+                                             for: indexPath) as! OstDeviceTableViewCell
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 1 {
+            if !isNextPageAvailable() && !self.isNewDataAvailable && !self.shouldReloadData {
+                return 0
+            }
+        }
+        
         return UITableView.automaticDimension
     }
     
@@ -203,12 +274,15 @@ class OstDeviceListViewController: OstBaseViewController, UITableViewDelegate, U
             self.deviceTableView.reloadData()
             self.isNewDataAvailable = false
             self.shouldLoadNextPage = true
-        }
-        
-        if !isApiCallInProgress {
             if self.refreshControl.isRefreshing {
                 self.refreshControl.endRefreshing()
             }
+        }
+        else if !isApiCallInProgress && !isScrolling {
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
+            self.deviceTableView.reloadSections(IndexSet(integer: 1), with: .automatic)
         }
     }
     
@@ -218,21 +292,30 @@ class OstDeviceListViewController: OstBaseViewController, UITableViewDelegate, U
             reloadDataIfNeeded()
             return
         }
+        
+        var nextPagePayload: [String: Any]? = nil
         if hardRefresh {
             meta = nil
             updatedTableArray = []
-        }else if nil != meta && meta!.isEmpty {
-            reloadDataIfNeeded()
-            return
+            consumedDevices = [:]
+        } else {
+            nextPagePayload = getNextPagePayload()
+            if nil == nextPagePayload {
+                reloadDataIfNeeded()
+                self.shouldLoadNextPage = true
+                return
+            }
         }
+        
         isApiCallInProgress = true
         
         OstJsonApi.getDeviceList(forUserId: self.userId!,
-                                 params: meta,
+                                 params: nextPagePayload,
                                  delegate: self)
     }
     
     func onFetchDeviceSuccess(_ apiResponse: [String: Any]?) {
+        progressIndicator?.hide()
         isApiCallInProgress = false
         
         let currentUser = OstWalletSdk.getUser(self.userId!)
@@ -248,10 +331,10 @@ class OstDeviceListViewController: OstBaseViewController, UITableViewDelegate, U
                 if let deviceAddress = device["address"] as? String,
                     consumedDevices[deviceAddress] == nil {
                     
-                    if currentDevice!.address!.caseInsensitiveCompare(deviceAddress) != .orderedSame {
+//                    if currentDevice!.address!.caseInsensitiveCompare(deviceAddress) != .orderedSame {
                         newDevices.append(device)
                         consumedDevices[deviceAddress] = device
-                    }
+//                    }
                 }
             }
         }
@@ -269,5 +352,19 @@ class OstDeviceListViewController: OstBaseViewController, UITableViewDelegate, U
     
     func onOstJsonApiError(error: OstError?, errorData: [String : Any]?) {
         onFetchDeviceSuccess(nil)
+    }
+    
+    func isNextPageAvailable() -> Bool {
+        return getNextPagePayload() != nil
+    }
+    
+    func getNextPagePayload() -> [String: Any]? {
+        guard let nextPagePayload = meta?["next_page_payload"] as? [String: Any] else {
+            return nil
+        }
+        if nextPagePayload.isEmpty {
+            return nil
+        }
+        return nextPagePayload
     }
 }
