@@ -29,6 +29,14 @@ import UIKit
         _ = OstContent(contentConfig: config)
     }
     
+    /// Once device setup is completed, call active user to deploy token holder.
+    ///
+    /// - Parameters:
+    ///   - userId: Ost user identifier
+    ///   - expireAfterInSec: Session expiration time in seconds
+    ///   - spendingLimit: Max amount that user can spend per transaction
+    ///   - passphrasePrefixDelegate: Callback to get passphrase prefix from application
+    /// - Returns: Workflow id
     @objc
     public class func activateUser(
         userId: String,
@@ -48,6 +56,12 @@ import UIKit
         return workflowController.workflowId
     }
     
+    /// Initiate device recovery.
+    ///
+    /// - Parameters:
+    ///   - userId: Ost user identifier
+    ///   - recoverDeviceAddress: Device address of device tobe recovered.
+    ///   - passphrasePrefixDelegate: Callback to get passphrase prefix from application
     @objc
     public class func initaiteDeviceRecovery(
         userId: String,
@@ -65,6 +79,11 @@ import UIKit
         return workflowController.workflowId
     }
     
+    /// Abort device recovery.
+    ///
+    /// - Parameters:
+    ///   - userId: Ost user identifier
+    ///   - passphrasePrefixDelegate: Callback to get passphrase prefix from application
     @objc
     public class func abortDeviceRecovery(
         userId: String,
@@ -81,6 +100,12 @@ import UIKit
         return workflowController.workflowId
     }
     
+    
+    /// Subscribe to receive workflow events.
+    ///
+    /// - Parameters:
+    ///   - workflowId: Workflow id
+    ///   - listner: OstWorkflowUIDelegate
     @objc
     public class func subscribe(workflowId: String,
                                 listner: OstWorkflowUIDelegate) {
@@ -89,6 +114,11 @@ import UIKit
                                              listner: listner)
     }
     
+    /// Unsubscribe to receive workflow events.
+    ///
+    /// - Parameters:
+    ///   - workflowId:  Workflow id
+    ///   - listner: OstWorkflowUIDelegate
     @objc
     public class func unsubscribe(workflowId: String,
                                   listner: OstWorkflowUIDelegate) {

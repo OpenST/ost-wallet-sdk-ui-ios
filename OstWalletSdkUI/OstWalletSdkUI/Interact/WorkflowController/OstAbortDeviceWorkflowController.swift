@@ -37,6 +37,14 @@ class OstAbortDeviceRecoveryWorkflowController: OstBaseWorkflowController {
         }
     }
     
+    override func performUserDeviceValidation() throws {
+        try super.performUserDeviceValidation()
+        
+        if self.currentDevice!.isStatusRevoked {
+            throw OstError("i_wc_adwc_pudv_1", .deviceNotSet);
+        }
+    }
+    
     @objc override func getWorkflowContext() -> OstWorkflowContext {
         return OstWorkflowContext(workflowType: .abortDeviceRecovery)
     }

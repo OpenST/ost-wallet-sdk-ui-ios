@@ -36,10 +36,21 @@ class OstActivateUserWorkflowController: OstBaseWorkflowController {
     }
     
     override func perform() {
-        
-        self.observeViewControllerIsMovingFromParent()
-        
+        super.perform()
         self.showCreatePinViewController()
+    }
+    
+    override func performUserDeviceValidation() throws {
+        if self.currentUser!.isStatusActivated {
+            throw OstError("i_wc_auwc_pudv_1", .userAlreadyActivated)
+        }
+        
+        if (!self.currentDevice!.isStatusRegistered
+            && (self.currentDevice!.isStatusRevoking
+                || self.currentDevice!.isStatusRevoked)) {
+            
+            throw OstError("i_wc_auwc_pudv_2", .deviceNotSet);
+        }
     }
     
     @objc override func getWorkflowContext() -> OstWorkflowContext {

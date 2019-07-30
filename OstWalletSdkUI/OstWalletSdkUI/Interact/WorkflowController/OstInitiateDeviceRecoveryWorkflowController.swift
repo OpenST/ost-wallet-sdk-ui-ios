@@ -30,13 +30,29 @@ class OstInitiateDeviceRecoveryWorkflowController: OstBaseWorkflowController {
     }
     
     override func perform() {
-        
-        self.observeViewControllerIsMovingFromParent()
-        
+        super.perform()
+
         if nil == recoverDeviceAddress {
             self.openAuthorizeDeviceListController()
         } else {
             self.openGetPinViewController()
+        }
+    }
+    
+    override func performUserDeviceValidation() throws {
+        try super.performUserDeviceValidation()
+        
+        if self.currentDevice!.isStatusAuthorized
+            || self.currentDevice!.isStatusRecovering {
+            
+            throw OstError("i_wc_idrwc_pudv_1", .deviceCanNotBeAuthorized);
+        }
+        
+        if (!self.currentDevice!.isStatusRegistered
+            && (self.currentDevice!.isStatusRevoking
+                || self.currentDevice!.isStatusRevoked)) {
+            
+            throw OstError("i_wc_idrwc_pudv_2", .deviceNotSet);
         }
     }
     
