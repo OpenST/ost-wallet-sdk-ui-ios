@@ -59,8 +59,8 @@ import Foundation
     }
     
     class func getAbortRecoveryPinVCConfig() -> OstPinVCConfig {
-        return OstPinVCConfig(titleText: "Recover access to OS Tokens",
-                              leadLabelText: "Enter your 6-digit PIN to access to your OS tokens",
+        return OstPinVCConfig(titleText: "Abort Recovery",
+                              leadLabelText: "Enter your 6-digit PIN to abort recovery",
                               infoLabelText: nil,
                               tcLabelText: nil)
     }

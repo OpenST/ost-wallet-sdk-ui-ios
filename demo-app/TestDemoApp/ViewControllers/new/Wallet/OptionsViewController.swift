@@ -488,7 +488,6 @@ class OptionsViewController: OstBaseViewController, UITableViewDelegate, UITable
             
         else if option.type == .abortRecovery {
             if option.isEnable {
-                
                 _ = OstWalletSdkUI.abortDeviceRecovery(userId: CurrentUserModel.getInstance.ostUserId!,
                                                        passphrasePrefixDelegate: CurrentUserModel.getInstance)
             }else {
