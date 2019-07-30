@@ -35,8 +35,7 @@ class OstActivateUserWorkflowController: OstBaseWorkflowController {
         print("OstActivateUserWorkflowController :: I am deinit ");
     }
     
-    override func perform() {
-        super.perform()
+    override func performUIActions() {
         self.showCreatePinViewController()
     }
     

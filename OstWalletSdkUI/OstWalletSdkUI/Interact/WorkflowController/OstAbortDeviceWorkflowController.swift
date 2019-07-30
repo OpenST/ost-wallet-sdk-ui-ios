@@ -24,24 +24,21 @@ class OstAbortDeviceRecoveryWorkflowController: OstBaseWorkflowController {
     deinit {
         print("OstAbortDeviceRecoveryWorkflowController :: I am deinit");
     }
-    
-    override func perform() {
-        
-        self.observeViewControllerIsMovingFromParent()
-        
-        DispatchQueue.main.async {
-            self.getPinViewController = OstPinViewController
-                .newInstance(pinInputDelegate: self,
-                             pinVCConfig: OstPinVCConfig.getAbortRecoveryPinVCConfig());
-            self.getPinViewController!.presentVCWithNavigation()
-        }
-    }
-    
+
     override func performUserDeviceValidation() throws {
         try super.performUserDeviceValidation()
         
         if self.currentDevice!.isStatusRevoked {
             throw OstError("i_wc_adwc_pudv_1", .deviceNotSet);
+        }
+    }
+    
+    override func performUIActions() {
+        DispatchQueue.main.async {
+            self.getPinViewController = OstPinViewController
+                .newInstance(pinInputDelegate: self,
+                             pinVCConfig: OstPinVCConfig.getAbortRecoveryPinVCConfig());
+            self.getPinViewController!.presentVCWithNavigation()
         }
     }
     

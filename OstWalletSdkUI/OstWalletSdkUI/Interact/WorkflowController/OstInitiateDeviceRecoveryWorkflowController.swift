@@ -28,10 +28,8 @@ class OstInitiateDeviceRecoveryWorkflowController: OstBaseWorkflowController {
     deinit {
         print("OstInitiateDeviceRecoveryWorkflowController :: I am deinit ");
     }
-    
-    override func perform() {
-        super.perform()
-
+        
+    override func performUIActions() {
         if nil == recoverDeviceAddress {
             self.openAuthorizeDeviceListController()
         } else {

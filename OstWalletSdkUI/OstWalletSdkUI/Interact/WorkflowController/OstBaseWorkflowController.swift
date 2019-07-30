@@ -24,6 +24,7 @@ import OstWalletSdk
             
             self.observeViewControllerIsMovingFromParent()
             try performUserDeviceValidation()
+            performUIActions()
         }catch let err {
             postFlowInterrupted(error: err as! OstError)
         }
@@ -40,8 +41,14 @@ import OstWalletSdk
         }
     }
     
+    func performUIActions() {
+        fatalError("performUIActions did not override")
+    }
+    
     func postFlowInterrupted(error: OstError) {
-        self.flowInterrupted(workflowContext: getWorkflowContext(),
-                             error: error)
+        DispatchQueue.main.asyncAfter(deadline: .now() + .microseconds(500)) {
+            self.flowInterrupted(workflowContext: self.getWorkflowContext(),
+                                 error: error)
+        }
     }
 }

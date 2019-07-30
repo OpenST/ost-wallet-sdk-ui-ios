@@ -458,8 +458,9 @@ class OptionsViewController: OstBaseViewController, UITableViewDelegate, UITable
         else if  option.type  == .manageDevices {
             if option.isEnable {
                 
-                OstWalletSdkUI.initaiteDeviceRecovery(userId: CurrentUserModel.getInstance.ostUserId!,
+                let workflowId = OstWalletSdkUI.initaiteDeviceRecovery(userId: CurrentUserModel.getInstance.ostUserId!,
                                                       passphrasePrefixDelegate: CurrentUserModel.getInstance)
+                OstWalletSdkUI.subscribe(workflowId: workflowId, listner: self)
                 return
             }else {
                 showInfoAlert(title: "Once")
