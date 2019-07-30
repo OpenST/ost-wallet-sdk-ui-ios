@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4B27C24E22E5F4C20063FC91 /* OstAuthorizeDeviceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B27C24D22E5F4C20063FC91 /* OstAuthorizeDeviceListViewController.swift */; };
+		4B27C24E22E5F4C20063FC91 /* OstInitiateRecoveryDLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B27C24D22E5F4C20063FC91 /* OstInitiateRecoveryDLViewController.swift */; };
 		4B27C25322E5F7170063FC91 /* OstBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B27C25022E5F7160063FC91 /* OstBaseTableViewCell.swift */; };
 		4B7B881D22E83E8000251B62 /* OstTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B881C22E83E8000251B62 /* OstTheme.swift */; };
 		4B7B882022E8619500251B62 /* OstLabelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B881F22E8619500251B62 /* OstLabelConfig.swift */; };
@@ -30,6 +30,7 @@
 		4B9431B822EF1CBB00966372 /* OstB1Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9431B722EF1CBB00966372 /* OstB1Button.swift */; };
 		4B9431BA22EF27B700966372 /* OstPinVCConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9431B922EF27B700966372 /* OstPinVCConfig.swift */; };
 		4B9431CB22EF7CC500966372 /* OstBaseWorkflowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9431CA22EF7CC500966372 /* OstBaseWorkflowController.swift */; };
+		4B9431DD22F043CA00966372 /* OstDeviceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9431DC22F043CA00966372 /* OstDeviceListViewController.swift */; };
 		4BDE72EC22E1C84900F906D1 /* OstWalletSdkUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BDE72E222E1C84900F906D1 /* OstWalletSdkUI.framework */; };
 		4BDE72F122E1C84900F906D1 /* OstWalletSdkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE72F022E1C84900F906D1 /* OstWalletSdkUITests.swift */; };
 		4BDE72F322E1C84900F906D1 /* OstWalletSdkUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BDE72E522E1C84900F906D1 /* OstWalletSdkUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -68,7 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4B27C24D22E5F4C20063FC91 /* OstAuthorizeDeviceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OstAuthorizeDeviceListViewController.swift; sourceTree = "<group>"; };
+		4B27C24D22E5F4C20063FC91 /* OstInitiateRecoveryDLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OstInitiateRecoveryDLViewController.swift; sourceTree = "<group>"; };
 		4B27C25022E5F7160063FC91 /* OstBaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OstBaseTableViewCell.swift; sourceTree = "<group>"; };
 		4B7B881C22E83E8000251B62 /* OstTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OstTheme.swift; sourceTree = "<group>"; };
 		4B7B881F22E8619500251B62 /* OstLabelConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OstLabelConfig.swift; sourceTree = "<group>"; };
@@ -91,6 +92,7 @@
 		4B9431B722EF1CBB00966372 /* OstB1Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OstB1Button.swift; sourceTree = "<group>"; };
 		4B9431B922EF27B700966372 /* OstPinVCConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OstPinVCConfig.swift; sourceTree = "<group>"; };
 		4B9431CA22EF7CC500966372 /* OstBaseWorkflowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OstBaseWorkflowController.swift; sourceTree = "<group>"; };
+		4B9431DC22F043CA00966372 /* OstDeviceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OstDeviceListViewController.swift; sourceTree = "<group>"; };
 		4BDE72E222E1C84900F906D1 /* OstWalletSdkUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OstWalletSdkUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BDE72E522E1C84900F906D1 /* OstWalletSdkUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OstWalletSdkUI.h; sourceTree = "<group>"; };
 		4BDE72E622E1C84900F906D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -252,6 +254,15 @@
 			path = Button;
 			sourceTree = "<group>";
 		};
+		4B9431DB22F043AF00966372 /* DeviceList */ = {
+			isa = PBXGroup;
+			children = (
+				4B9431DC22F043CA00966372 /* OstDeviceListViewController.swift */,
+				4B27C24D22E5F4C20063FC91 /* OstInitiateRecoveryDLViewController.swift */,
+			);
+			path = DeviceList;
+			sourceTree = "<group>";
+		};
 		4BDE72D822E1C84900F906D1 = {
 			isa = PBXGroup;
 			children = (
@@ -363,11 +374,11 @@
 		4BDE731C22E578D400F906D1 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				4B9431DB22F043AF00966372 /* DeviceList */,
 				4BDE736E22E582BC00F906D1 /* WKWebViewController.swift */,
 				4BDE732122E5791900F906D1 /* OstBaseScrollViewController.swift */,
 				4BDE732222E5791900F906D1 /* OstBaseViewController.swift */,
 				4BDE731D22E5791900F906D1 /* pin */,
-				4B27C24D22E5F4C20063FC91 /* OstAuthorizeDeviceListViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -517,6 +528,7 @@
 				4B27C25322E5F7170063FC91 /* OstBaseTableViewCell.swift in Sources */,
 				4B7B884F22E8706E00251B62 /* OstH1Label.swift in Sources */,
 				4BDE731722E577B800F906D1 /* OstPassphrasePrefixDelegate.swift in Sources */,
+				4B9431DD22F043CA00966372 /* OstDeviceListViewController.swift in Sources */,
 				4B9431BA22EF27B700966372 /* OstPinVCConfig.swift in Sources */,
 				4BDE734E22E57DEF00F906D1 /* OstWorkflowCallbacks.swift in Sources */,
 				4BDE745822E5BB0300F906D1 /* OstInitiateDeviceRecoveryWorkflowController.swift in Sources */,
@@ -536,7 +548,7 @@
 				4B9431B822EF1CBB00966372 /* OstB1Button.swift in Sources */,
 				4B7B884D22E86F8900251B62 /* OstLabel1.swift in Sources */,
 				4BDE730022E1CA4D00F906D1 /* OstWalletSdkUI.swift in Sources */,
-				4B27C24E22E5F4C20063FC91 /* OstAuthorizeDeviceListViewController.swift in Sources */,
+				4B27C24E22E5F4C20063FC91 /* OstInitiateRecoveryDLViewController.swift in Sources */,
 				4B7B882222E861A500251B62 /* OstButtonConfig.swift in Sources */,
 				4B7B88A522E89BA900251B62 /* OstH3Label.swift in Sources */,
 				4BDE734622E57AA800F906D1 /* UIImage+Helper.swift in Sources */,

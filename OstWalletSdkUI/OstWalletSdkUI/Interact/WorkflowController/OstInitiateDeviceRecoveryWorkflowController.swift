@@ -14,7 +14,7 @@ import OstWalletSdk
 class OstInitiateDeviceRecoveryWorkflowController: OstBaseWorkflowController {
     
     var recoverDeviceAddress: String?
-    var deviceListController: OstAuthorizeDeviceListViewController? = nil
+    var deviceListController: OstInitiateRecoveryDLViewController? = nil
     /// Mark - View Controllers.
     
     init(userId: String,
@@ -62,7 +62,7 @@ class OstInitiateDeviceRecoveryWorkflowController: OstBaseWorkflowController {
         
         var isFlowCancelled: Bool = false
         if (nil == self.deviceListController && notification.object is OstPinViewController)
-            || (nil != self.deviceListController && notification.object is OstAuthorizeDeviceListViewController) {
+            || (nil != self.deviceListController && notification.object is OstInitiateRecoveryDLViewController) {
             
             isFlowCancelled = true
         }
@@ -83,7 +83,7 @@ class OstInitiateDeviceRecoveryWorkflowController: OstBaseWorkflowController {
     func openAuthorizeDeviceListController() {
         
         DispatchQueue.main.async {
-            self.deviceListController = OstAuthorizeDeviceListViewController
+            self.deviceListController = OstInitiateRecoveryDLViewController
                 .newInstance(userId: self.userId,
                              callBack: {[weak self] (device) in
                                 self?.recoverDeviceAddress = (device?["address"] as? String) ?? ""
