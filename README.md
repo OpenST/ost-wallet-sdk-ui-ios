@@ -1,5 +1,7 @@
 # OST Wallet SDK iOS
 
+**warning**: this is alpha stage code and **NOT** ready for production use
+
 ## Introduction
 
 Wallet SDK is a mobile application development SDK that enables developers to integrate the functionality of a non-custodial crypto-wallet into consumer applications. The SDK:
